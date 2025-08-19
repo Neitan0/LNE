@@ -1,0 +1,224 @@
+{
+  "questions": [
+    {
+      "question": "Qual das alternativas representa uma substância pura?",
+      "answers": [
+        { "text": "A) Água do mar", "isCorrect": false },
+        { "text": "B) Gás oxigênio (O₂)", "isCorrect": true },
+        { "text": "C) Ar atmosférico", "isCorrect": false },
+        { "text": "D) Sangue", "isCorrect": false },
+        { "text": "E) Leite integral", "isCorrect": false }
+      ],
+      "explanation": "Uma substância pura é formada por apenas um tipo de componente, com composição fixa e propriedades bem definidas. Pode ser um elemento químico ou um composto. Diferente das misturas, ela não varia sua composição."
+    },
+    {
+      "question": "O número atômico representa:",
+      "answers": [
+        { "text": "A) A massa do átomo", "isCorrect": false },
+        { "text": "B) O número de nêutrons", "isCorrect": false },
+        { "text": "C) O número de prótons", "isCorrect": true },
+        { "text": "D) A soma de prótons e nêutrons", "isCorrect": false },
+        { "text": "E) O número de elétrons na última camada", "isCorrect": false }
+      ],
+      "explanation": "O número atômico é um valor que indica quantas partículas com carga positiva existem no núcleo de um átomo. Essa informação ajuda a identificar o elemento químico na tabela periódica."
+    },
+    {
+      "question": "Qual é a fórmula molecular da água oxigenada?",
+      "answers": [
+        { "text": "A) H₂O", "isCorrect": false },
+        { "text": "B) O₂", "isCorrect": false },
+        { "text": "C) H₂O₂", "isCorrect": true },
+        { "text": "D) HO", "isCorrect": false },
+        { "text": "E) H₂", "isCorrect": false }
+      ],
+      "explanation": "A água oxigenada é uma substância diferente da água comum. Sua fórmula química indica que contém mais átomos de oxigênio do que a água. Ela é muito usada como desinfetante e alvejante."
+    },
+    {
+      "question": "A ligação química entre átomos de sódio e cloro no NaCl é do tipo:",
+      "answers": [
+        { "text": "A) Covalente polar", "isCorrect": false },
+        { "text": "B) Metálica", "isCorrect": false },
+        { "text": "C) Covalente apolar", "isCorrect": false },
+        { "text": "D) Iônica", "isCorrect": true },
+        { "text": "E) Dativa", "isCorrect": false }
+      ],
+      "explanation": "Quando um metal reage com um não-metal, ocorre uma transferência de elétrons de um para o outro, formando íons com cargas opostas que se atraem. Esse tipo de ligação é bem comum em sais."
+    },
+    {
+      "question": "Um exemplo de reação de neutralização é:",
+      "answers": [
+        { "text": "A) H₂ + O₂ → H₂O", "isCorrect": false },
+        { "text": "B) HCl + NaOH → NaCl + H₂O", "isCorrect": true },
+        { "text": "C) Fe + O₂ → Fe₂O₃", "isCorrect": false },
+        { "text": "D) CH₄ + O₂ → CO₂ + H₂O", "isCorrect": false },
+        { "text": "E) CaCO₃ → CaO + CO₂", "isCorrect": false }
+      ],
+      "explanation": "Essa reação ocorre entre um ácido e uma base, resultando em sal e água. É muito usada, por exemplo, para tratar acidez estomacal com antiácidos."
+    },
+    {
+      "question": "Em uma reação de combustão completa, o carbono forma:",
+      "answers": [
+        { "text": "A) Monóxido de carbono", "isCorrect": false },
+        { "text": "B) Cinzas", "isCorrect": false },
+        { "text": "C) Dióxido de carbono", "isCorrect": true },
+        { "text": "D) Carbonato de cálcio", "isCorrect": false },
+        { "text": "E) Gás metano", "isCorrect": false }
+      ],
+      "explanation": "Quando um elemento como o carbono queima completamente com oxigênio, forma um gás incolor e inodoro que está muito ligado ao aquecimento global."
+    },
+    {
+      "question": "Qual das opções apresenta uma mistura homogênea?",
+      "answers": [
+        { "text": "A) Água e óleo", "isCorrect": false },
+        { "text": "B) Areia e sal", "isCorrect": false },
+        { "text": "C) Granito", "isCorrect": false },
+        { "text": "D) Álcool e água", "isCorrect": true },
+        { "text": "E) Gelo e água", "isCorrect": false }
+      ],
+      "explanation": "Em uma mistura homogênea, não conseguimos distinguir os componentes a olho nu, pois formam uma única fase. É o caso de líquidos que se misturam completamente."
+    },
+    {
+      "question": "A unidade usada para medir a quantidade de matéria é:",
+      "answers": [
+        { "text": "A) Litro", "isCorrect": false },
+        { "text": "B) Quilograma", "isCorrect": false },
+        { "text": "C) Ampère", "isCorrect": false },
+        { "text": "D) Grau Celsius", "isCorrect": false },
+        { "text": "E) Mol", "isCorrect": true }
+      ],
+      "explanation": "Na química, existe uma unidade específica usada para medir a quantidade de átomos, moléculas ou íons. Essa unidade é baseada em um número muito grande chamado número de Avogadro."
+    },
+    {
+      "question": "Um exemplo de propriedade intensiva é:",
+      "answers": [
+        { "text": "A) Volume", "isCorrect": false },
+        { "text": "B) Massa", "isCorrect": false },
+        { "text": "C) Comprimento", "isCorrect": false },
+        { "text": "D) Densidade", "isCorrect": true },
+        { "text": "E) Quantidade de matéria", "isCorrect": false }
+      ],
+      "explanation": "Essas propriedades não dependem da quantidade de material presente. São características que ajudam a identificar substâncias, como temperatura de fusão e cor."
+    },
+    {
+      "question": "Qual o número de elétrons na camada de valência do carbono (Z=6)?",
+      "answers": [
+        { "text": "A) 2", "isCorrect": false },
+        { "text": "B) 4", "isCorrect": true },
+        { "text": "C) 6", "isCorrect": false },
+        { "text": "D) 8", "isCorrect": false },
+        { "text": "E) 1", "isCorrect": false }
+      ],
+      "explanation": "A camada de valência é a mais externa de um átomo e é onde ocorrem as ligações químicas. Saber quantos elétrons estão ali ajuda a prever o comportamento do elemento."
+    },
+    {
+      "question": "Um ácido é caracterizado por:",
+      "answers": [
+        { "text": "A) Produzir OH⁻ em solução", "isCorrect": false },
+        { "text": "B) Ter sabor salgado", "isCorrect": false },
+        { "text": "C) Liberar H⁺ em solução aquosa", "isCorrect": true },
+        { "text": "D) Ser sempre sólido", "isCorrect": false },
+        { "text": "E) Reagir com bases formando metais", "isCorrect": false }
+      ],
+      "explanation": "Os ácidos são substâncias que, em solução aquosa, se comportam de uma maneira específica: eles liberam um tipo de íon que está ligado ao sabor azedo e à reatividade com metais e bases."
+    },
+    {
+      "question": "O nome correto da substância NaOH é:",
+      "answers": [
+        { "text": "A) Ácido clorídrico", "isCorrect": false },
+        { "text": "B) Hidróxido de sódio", "isCorrect": true },
+        { "text": "C) Nitrato de sódio", "isCorrect": false },
+        { "text": "D) Cloreto de sódio", "isCorrect": false },
+        { "text": "E) Peróxido de sódio", "isCorrect": false }
+      ],
+      "explanation": "Essa substância é uma base muito usada em produtos de limpeza. Seu nome reflete os elementos que a compõem: um metal, oxigênio e hidrogênio."
+    },
+    {
+      "question": "A lei de conservação da massa foi proposta por:",
+      "answers": [
+        { "text": "A) Dalton", "isCorrect": false },
+        { "text": "B) Rutherford", "isCorrect": false },
+        { "text": "C) Lavoisier", "isCorrect": true },
+        { "text": "D) Proust", "isCorrect": false },
+        { "text": "E) Bohr", "isCorrect": false }
+      ],
+      "explanation": "Essa lei afirma que, em uma reação química, nada se perde, nada se cria — tudo se transforma. Ou seja, a massa total antes e depois da reação é a mesma."
+    },
+    {
+      "question": "Um exemplo de mudança química é:",
+      "answers": [
+        { "text": "A) Fusão do gelo", "isCorrect": false },
+        { "text": "B) Queima de papel", "isCorrect": true },
+        { "text": "C) Evaporação da água", "isCorrect": false },
+        { "text": "D) Dissolução do sal", "isCorrect": false },
+        { "text": "E) Condensação do vapor", "isCorrect": false }
+      ],
+      "explanation": "Mudanças químicas resultam em novas substâncias com propriedades diferentes das originais. Envolvem rearranjos de átomos e não são reversíveis facilmente."
+    },
+    {
+      "question": "A eletrólise da água produz:",
+      "answers": [
+        { "text": "A) O₂ e CO₂", "isCorrect": false },
+        { "text": "B) H₂O e H⁺", "isCorrect": false },
+        { "text": "C) H⁺ e OH⁻", "isCorrect": false },
+        { "text": "D) H₂ e O₂", "isCorrect": true },
+        { "text": "E) O₃ e H₂", "isCorrect": false }
+      ],
+      "explanation": "Esse processo separa os elementos que compõem a água usando energia elétrica. Cada elemento se forma em um dos eletrodos durante a reação."
+    },
+    {
+      "question": "O gás responsável pelo efeito estufa em maior quantidade é:",
+      "answers": [
+        { "text": "A) O₂", "isCorrect": false },
+        { "text": "B) CO", "isCorrect": false },
+        { "text": "C) CO₂", "isCorrect": true },
+        { "text": "D) CH₄", "isCorrect": false },
+        { "text": "E) O₃", "isCorrect": false }
+      ],
+      "explanation": "Certos gases presentes na atmosfera retêm calor, contribuindo para o aquecimento do planeta. Entre eles, um se destaca por ser o mais emitido pelas atividades humanas."
+    },
+    {
+      "question": "A fórmula do ácido sulfúrico é:",
+      "answers": [
+        { "text": "A) HNO₃", "isCorrect": false },
+        { "text": "B) HCl", "isCorrect": false },
+        { "text": "C) H₂SO₄", "isCorrect": true },
+        { "text": "D) H₂CO₃", "isCorrect": false },
+        { "text": "E) H₃PO₄", "isCorrect": false }
+      ],
+      "explanation": "Esse ácido é muito forte e usado em indústrias. Sua fórmula indica a presença de dois átomos de hidrogênio, enxofre e oxigênios, o que lhe dá grande reatividade."
+    },
+    {
+      "question": "Em qual estado físico as partículas estão mais próximas?",
+      "answers": [
+        { "text": "A) Gasoso", "isCorrect": false },
+        { "text": "B) Plasma", "isCorrect": false },
+        { "text": "C) Líquido", "isCorrect": false },
+        { "text": "D) Sólido", "isCorrect": true },
+        { "text": "E) Vapor", "isCorrect": false }
+      ],
+      "explanation": "A matéria pode existir em três estados principais. Em um deles, as partículas estão tão próximas que quase não se movimentam, mantendo forma e volume fixos."
+    },
+    {
+      "question": "A água é considerada um solvente universal porque:",
+      "answers": [
+        { "text": "A) Está presente em todos os lugares", "isCorrect": false },
+        { "text": "B) Possui alta densidade", "isCorrect": false },
+        { "text": "C) É uma substância iônica", "isCorrect": false },
+        { "text": "D) Dissolve muitas substâncias", "isCorrect": true },
+        { "text": "E) É sempre líquida", "isCorrect": false }
+      ],
+      "explanation": "A água tem a capacidade de dissolver muitas substâncias diferentes. Isso se deve à sua estrutura molecular, que permite interações com vários tipos de compostos."
+    },
+    {
+      "question": "Qual é o nome do processo que separa componentes de uma mistura com base nos pontos de ebulição?",
+      "answers": [
+        { "text": "A) Decantação", "isCorrect": false },
+        { "text": "B) Peneiração", "isCorrect": false },
+        { "text": "C) Filtração", "isCorrect": false },
+        { "text": "D) Destilação", "isCorrect": true },
+        { "text": "E) Imantação", "isCorrect": false }
+      ],
+      "explanation": "Para separar os componentes de uma mistura líquida, pode-se aquecê-la até que um componente evapore. O vapor é então resfriado e recolhido separadamente."
+    }
+  ]
+}

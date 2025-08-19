@@ -1,0 +1,224 @@
+{
+  "questions": [
+    {
+      "question": "Qual das alternativas é um exemplo de mistura heterogênea?",
+      "answers": [
+        { "text": "A) Solução salina", "isCorrect": false },
+        { "text": "B) Água destilada", "isCorrect": false },
+        { "text": "C) Alumínio metálico", "isCorrect": false },
+        { "text": "D) Água e óleo", "isCorrect": true },
+        { "text": "E) Gás carbônico", "isCorrect": false }
+      ],
+      "explanation": "Misturas podem ser homogêneas (uma única fase) ou heterogêneas (duas ou mais fases visíveis). A observação visual e a separação dos componentes ajudam a identificar o tipo."
+    },
+    {
+      "question": "A propriedade que depende da quantidade de matéria é:",
+      "answers": [
+        { "text": "A) Densidade", "isCorrect": false },
+        { "text": "B) Temperatura", "isCorrect": false },
+        { "text": "C) Massa", "isCorrect": true },
+        { "text": "D) Cor", "isCorrect": false },
+        { "text": "E) Ponto de fusão", "isCorrect": false }
+      ],
+      "explanation": "Algumas propriedades dependem da quantidade de matéria, como massa e volume, enquanto outras, como densidade e temperatura, independem da quantidade e são chamadas intensivas."
+    },
+    {
+      "question": "Em uma mistura, o componente que está em menor quantidade é chamado de:",
+      "answers": [
+        { "text": "A) Solvente", "isCorrect": false },
+        { "text": "B) Soluto", "isCorrect": true },
+        { "text": "C) Solução", "isCorrect": false },
+        { "text": "D) Mistura", "isCorrect": false },
+        { "text": "E) Coloide", "isCorrect": false }
+      ],
+      "explanation": "Em uma solução, há um componente em maior quantidade (geralmente o líquido que dissolve) e outro em menor quantidade (o que é dissolvido)."
+    },
+    {
+      "question": "A fórmula do gás carbônico é:",
+      "answers": [
+        { "text": "A) CO", "isCorrect": false },
+        { "text": "B) CO₂", "isCorrect": true },
+        { "text": "C) C₂O", "isCorrect": false },
+        { "text": "D) CH₄", "isCorrect": false },
+        { "text": "E) H₂O₂", "isCorrect": false }
+      ],
+      "explanation": "Os compostos químicos possuem fórmulas que indicam os elementos presentes e suas proporções. É importante distinguir entre fórmulas de óxidos, ácidos, bases e outros compostos."
+    },
+    {
+      "question": "Um álcool primário comum na indústria é o:",
+      "answers": [
+        { "text": "A) Metanol", "isCorrect": false },
+        { "text": "B) Etanol", "isCorrect": true },
+        { "text": "C) Propanol", "isCorrect": false },
+        { "text": "D) Butanol", "isCorrect": false },
+        { "text": "E) Isopropanol", "isCorrect": false }
+      ],
+      "explanation": "Álcoois primários possuem o grupo -OH ligado a um carbono primário (ligado a apenas um outro carbono). Alguns são bastante utilizados na indústria como combustível ou solvente."
+    },
+    {
+      "question": "A classificação “ácido forte” refere-se a um ácido que:",
+      "answers": [
+        { "text": "A) Não se dissocia", "isCorrect": false },
+        { "text": "B) Se dissocia completamente", "isCorrect": true },
+        { "text": "C) Reage com metais pesados", "isCorrect": false },
+        { "text": "D) Possui cheiro forte", "isCorrect": false },
+        { "text": "E) É sólido", "isCorrect": false }
+      ],
+      "explanation": "A força de um ácido está relacionada à sua capacidade de liberar íons H⁺ em solução aquosa. Quanto maior a ionização, mais forte é considerado o ácido."
+    },
+    {
+      "question": "A tabela periódica foi organizada inicialmente por:",
+      "answers": [
+        { "text": "A) Rutherford", "isCorrect": false },
+        { "text": "B) Mendeleev", "isCorrect": true },
+        { "text": "C) Bohr", "isCorrect": false },
+        { "text": "D) Daltons", "isCorrect": false },
+        { "text": "E) Pauling", "isCorrect": false }
+      ],
+      "explanation": "A tabela periódica foi organizada com base em propriedades químicas e físicas dos elementos, buscando identificar padrões periódicos de comportamento."
+    },
+    {
+      "question": "O peixe “Electrophorus electricus” gera eletricidade via:",
+      "answers": [
+        { "text": "A) Oxidação", "isCorrect": true },
+        { "text": "B) Reação endotérmica", "isCorrect": false },
+        { "text": "C) Células eletrizantes", "isCorrect": false },
+        { "text": "D) Fotossíntese", "isCorrect": false },
+        { "text": "E) Efeito termelétrico", "isCorrect": false }
+      ],
+      "explanation": "Alguns animais produzem eletricidade por meio de reações químicas em suas células especializadas. Isso envolve transferências de elétrons semelhantes às observadas em reações de oxidação-redução."
+    },
+    {
+      "question": "Em uma solução aquosa de NaCl, o soluto é:",
+      "answers": [
+        { "text": "A) Água", "isCorrect": false },
+        { "text": "B) NaCl", "isCorrect": true },
+        { "text": "C) H₂O₂", "isCorrect": false },
+        { "text": "D) CO₂", "isCorrect": false },
+        { "text": "E) Glicose", "isCorrect": false }
+      ],
+      "explanation": "Em uma solução, o solvente é a substância que dissolve, e o soluto é a substância dissolvida. A identificação depende da quantidade e da função de cada componente."
+    },
+    {
+      "question": "A mudança da água sólida diretamente para vapor é:",
+      "answers": [
+        { "text": "A) Sublimação", "isCorrect": true },
+        { "text": "B) Fusão", "isCorrect": false },
+        { "text": "C) Vaporização", "isCorrect": false },
+        { "text": "D) Condensação", "isCorrect": false },
+        { "text": "E) Solidificação", "isCorrect": false }
+      ],
+      "explanation": "A matéria pode mudar de estado (sólido, líquido, gasoso). Algumas transformações são diretas, sem passar pelo estado intermediário, e recebem nomes específicos."
+    },
+    {
+      "question": "Um exemplo de reação endotérmica é:",
+      "answers": [
+        { "text": "A) Combustão do etanol", "isCorrect": false },
+        { "text": "B) Dissolução de nitrato de amônio em água", "isCorrect": true },
+        { "text": "C) Formação de óxido de ferro", "isCorrect": false },
+        { "text": "D) Neutralização HCl + NaOH", "isCorrect": false },
+        { "text": "E) Fotossíntese", "isCorrect": false }
+      ],
+      "explanation": "São aquelas que absorvem calor do ambiente para ocorrer. Elas geralmente provocam resfriamento do meio externo e podem envolver dissoluções ou reações químicas."
+    },
+    {
+      "question": "O número de massa (A) de um átomo é a soma de:",
+      "answers": [
+        { "text": "A) Prótons + elétrons", "isCorrect": false },
+        { "text": "B) Prótons + nêutrons", "isCorrect": true },
+        { "text": "C) Nêutrons + elétrons", "isCorrect": false },
+        { "text": "D) Prótons + massa atômica", "isCorrect": false },
+        { "text": "E) Elétrons + massa molecular", "isCorrect": false }
+      ],
+      "explanation": "O número de massa de um átomo corresponde à soma das partículas do núcleo, que determinam sua massa e identidade isotópica."
+    },
+    {
+      "question": "Um catalisador:",
+      "answers": [
+        { "text": "A) Aumenta a temperatura da reação", "isCorrect": false },
+        { "text": "B) Diminui a velocidade", "isCorrect": false },
+        { "text": "C) Não altera a energia de ativação", "isCorrect": false },
+        { "text": "D) Aumenta a energia de ativação", "isCorrect": false },
+        { "text": "E) Não afeta a velocidade", "isCorrect": false }
+      ],
+      "explanation": "Um catalisador influencia a velocidade da reação sem ser consumido. Ele age reduzindo a energia necessária para que a reação aconteça, chamada de energia de ativação."
+    },
+    {
+      "question": "A unidade de concentração molar (mol/L) é chamada de:",
+      "answers": [
+        { "text": "A) Molalidade", "isCorrect": false },
+        { "text": "B) Molaridade", "isCorrect": true },
+        { "text": "C) Fração molar", "isCorrect": false },
+        { "text": "D) Porcentagem gewicht", "isCorrect": false },
+        { "text": "E) Densidade", "isCorrect": false }
+      ],
+      "explanation": "A concentração molar, também chamada de molaridade, indica quantos mols de soluto existem em 1 litro de solução. É uma das formas mais comuns de expressar concentração em química."
+    },
+    {
+      "question": "Qual fenômeno explica o ascenso da seiva nas plantas?",
+      "answers": [
+        { "text": "A) Tensão superficial", "isCorrect": false },
+        { "text": "B) Osmose", "isCorrect": false },
+        { "text": "C) Coesão e adesão", "isCorrect": true },
+        { "text": "D) Electroforese", "isCorrect": false },
+        { "text": "E) Ionização", "isCorrect": false }
+      ],
+      "explanation": "O movimento de líquidos nas plantas ocorre por forças físicas como a atração entre moléculas semelhantes e a adesão às paredes dos vasos condutores."
+    },
+    {
+      "question": "O isótopo mais comum do carbono é o:",
+      "answers": [
+        { "text": "A) C-10", "isCorrect": false },
+        { "text": "B) C-11", "isCorrect": false },
+        { "text": "C) C-12", "isCorrect": true },
+        { "text": "D) C-13", "isCorrect": false },
+        { "text": "E) C-14", "isCorrect": false }
+      ],
+      "explanation": "O carbono possui diferentes formas com o mesmo número de prótons, mas quantidades diferentes de nêutrons, chamadas isótopos. Um deles é o mais estável e mais comum."
+    },
+    {
+      "question": "A ligação metal-metal observada em pedaços de sódio é:",
+      "answers": [
+        { "text": "A) Iônica", "isCorrect": false },
+        { "text": "B) Covalente", "isCorrect": false },
+        { "text": "C) Metálica", "isCorrect": true },
+        { "text": "D) Dativa", "isCorrect": false },
+        { "text": "E) Hidrogênio", "isCorrect": false }
+      ],
+      "explanation": "A ligação entre átomos pode ser iônica, covalente, metálica, entre outras. Em metais puros, os átomos compartilham elétrons de forma diferente das outras ligações."
+    },
+    {
+      "question": "Um exemplo de reação de oxirredução é:",
+      "answers": [
+        { "text": "A) Neutralização HCl + NaOH", "isCorrect": false },
+        { "text": "B) Combustão do metano", "isCorrect": true },
+        { "text": "C) Dissolução do sal", "isCorrect": false },
+        { "text": "D) Fusão do gelo", "isCorrect": false },
+        { "text": "E) Sublimação do iodo", "isCorrect": false }
+      ],
+      "explanation": "Essas reações envolvem transferência de elétrons entre substâncias. Um elemento é oxidado (perde elétrons) e outro é reduzido (ganha elétrons). São comuns em processos como combustão."
+    },
+    {
+      "question": "A água dura é rica em:",
+      "answers": [
+        { "text": "A) Sódio", "isCorrect": false },
+        { "text": "B) Ferro", "isCorrect": false },
+        { "text": "C) Cálcio e magnésio", "isCorrect": true },
+        { "text": "D) Cloro", "isCorrect": false },
+        { "text": "E) Flúor", "isCorrect": false }
+      ],
+      "explanation": "Esse tipo de água possui altas concentrações de certos íons metálicos, o que interfere na formação de espuma com sabões e pode causar incrustações em canos e caldeiras."
+    },
+    {
+      "question": "A lei de Avogadro relaciona:",
+      "answers": [
+        { "text": "A) Volume e pressão", "isCorrect": false },
+        { "text": "B) Temperatura e pressão", "isCorrect": false },
+        { "text": "C) Volume e número de moléculas", "isCorrect": true },
+        { "text": "D) Massa e densidade", "isCorrect": false },
+        { "text": "E) Energia e temperatura", "isCorrect": false }
+      ],
+      "explanation": "Essa lei afirma que, em mesmas condições de temperatura e pressão, volumes iguais de gases diferentes contêm o mesmo número de partículas, independentemente do tipo de gás."
+    }
+  ]
+}

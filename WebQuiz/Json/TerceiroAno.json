@@ -1,0 +1,224 @@
+{
+"questions": [
+    {
+        "question": "O pH de uma solução ácida é:",
+        "answers": [
+            { "text": "A) Igual a 7", "isCorrect": false },
+            { "text": "B) Superior a 7", "isCorrect": false },
+            { "text": "C) Inferior a 7", "isCorrect": true },
+            { "text": "D) Igual a 14", "isCorrect": false },
+            { "text": "E) Sempre igual a 0", "isCorrect": false },
+        ],
+        "explanation": "O pH mede a concentração de íons H⁺ na solução; valores mais baixos indicam maior acidez.",
+    },
+    {
+        "question": "O que é uma solução tampão?",
+        "answers": [
+            { "text": "A) Solução que contém somente ácidos", "isCorrect": false },
+            { "text": "B) Solução que não conduz eletricidade", "isCorrect": false },
+            { "text": "C) Solução que resiste à variação de pH", "isCorrect": true },
+            { "text": "D) Solução sem íons", "isCorrect": false },
+            { "text": "E) Solução que evapora facilmente", "isCorrect": false },
+        ],
+        "explanation": "Tipo de solução que resiste a mudanças de pH quando se adicionam pequenas quantidades de ácido ou base.",
+    },
+    {
+        "question": "Em reações redox, o agente oxidante:",
+        "answers": [
+            { "text": "A) Perde elétrons", "isCorrect": false },
+            { "text": "B) Ganha elétrons", "isCorrect": true },
+            { "text": "C) Neutraliza o pH", "isCorrect": false },
+            { "text": "D) É sempre um metal", "isCorrect": false },
+            { "text": "E) É um catalisador", "isCorrect": false },
+        ],
+        "explanation": "Em uma reação redox, esse componente aceita elétrons, promovendo a oxidação do outro reagente.",
+    },
+    {
+        "question": "A constante de equilíbrio (Kc) depende de:",
+        "answers": [
+            { "text": "A) Massa molar", "isCorrect": false },
+            { "text": "B) Pressão atmosférica", "isCorrect": false },
+            { "text": "C) Concentração dos reagentes e produtos", "isCorrect": true },
+            { "text": "D) Velocidade da reação", "isCorrect": false },
+            { "text": "E) Volume do frasco", "isCorrect": false },
+        ],
+        "explanation": "Está relacionada com a concentração dos reagentes e produtos em equilíbrio, refletindo a posição do equilíbrio químico.",
+    },
+    {
+        "question": "O deslocamento do equilíbrio químico ocorre de acordo com:",
+        "answers": [
+            { "text": "A) Lei de Lavoisier", "isCorrect": false },
+            { "text": "B) Lei de Hess", "isCorrect": false },
+            { "text": "C) Princípio de Le Chatelier", "isCorrect": true },
+            { "text": "D) Lei de Dalton", "isCorrect": false },
+            { "text": "E) Lei de Avogadro", "isCorrect": false },
+        ],
+        "explanation": "Essa ideia explica como o sistema responde a alterações externas (como pressão, temperatura ou concentração).",
+    },
+    {
+        "question": "A entalpia (ΔH) de uma reação endotérmica é:",
+        "answers": [
+            { "text": "A) Negativa", "isCorrect": false },
+            { "text": "B) Zero", "isCorrect": false },
+            { "text": "C) Infinita", "isCorrect": false },
+            { "text": "D) Positiva", "isCorrect": true },
+            { "text": "E) Constante", "isCorrect": false },
+        ],
+        "explanation": "Essa reação absorve calor do meio, o que se reflete em uma mudança de entalpia característica.",
+    },
+    {
+        "question": "Qual destas reações é exotérmica?",
+        "answers": [
+            { "text": "A) Evaporação da água", "isCorrect": false },
+            { "text": "B) Fusão do gelo", "isCorrect": false },
+            { "text": "C) Combustão do etanol", "isCorrect": true },
+            { "text": "D) Fotossíntese", "isCorrect": false },
+            { "text": "E) Sublimação do iodo", "isCorrect": false },
+        ],
+        "explanation": "É um tipo de reação que libera energia para o ambiente, muitas vezes em forma de calor.",
+    },
+    {
+        "question": "O valor de ΔG (energia livre de Gibbs) negativo indica:",
+        "answers": [
+            { "text": "A) Reação não espontânea", "isCorrect": false },
+            { "text": "B) Reação endotérmica", "isCorrect": false },
+            { "text": "C) Reação espontânea", "isCorrect": true },
+            { "text": "D) Equilíbrio químico", "isCorrect": false },
+            { "text": "E) Pressão constante", "isCorrect": false },
+        ],
+        "explanation": "Indica que a reação pode ocorrer espontaneamente, considerando variações de entalpia e entropia.",
+    },
+    {
+        "question": "O processo em que um metal perde elétrons é chamado de:",
+        "answers": [
+            { "text": "A) Redução", "isCorrect": false },
+            { "text": "B) Neutralização", "isCorrect": false },
+            { "text": "C) Ionização", "isCorrect": false },
+            { "text": "D) Oxidação", "isCorrect": true },
+            { "text": "E) Polimerização", "isCorrect": false },
+        ],
+        "explanation": "Processo fundamental em reações de oxirredução, onde o metal sofre uma transformação ao perder elétrons.",
+    },
+    {
+        "question": "O que ocorre em uma célula eletroquímica (pilha)?",
+        "answers": [
+            { "text": "A) Conversão de energia química em elétrica", "isCorrect": true },
+            { "text": "B) Conversão de calor em eletricidade", "isCorrect": false },
+            { "text": "C) Conversão de luz em energia química", "isCorrect": false },
+            { "text": "D) Produção de calor por combustão", "isCorrect": false },
+            { "text": "E) Dissolução de metais", "isCorrect": false },
+        ],
+        "explanation": "Dispositivo que converte energia química em energia elétrica por meio de reações redox.",
+    },
+    {
+        "question": "O potencial padrão de redução indica:",
+        "answers": [
+            { "text": "A) A densidade de uma solução", "isCorrect": false },
+            { "text": "B) A capacidade de perder elétrons", "isCorrect": false },
+            { "text": "C) A tendência de uma espécie receber elétrons", "isCorrect": true },
+            { "text": "D) O valor do pH da solução", "isCorrect": false },
+            { "text": "E) A concentração molar", "isCorrect": false },
+        ],
+        "explanation": "Mede a tendência de uma substância ganhar elétrons em uma célula eletroquímica.",
+    },
+    {
+        "question": "Qual a função do sal ponte salina em uma pilha?",
+        "answers": [
+            { "text": "A) Reduzir a corrente", "isCorrect": false },
+            { "text": "B) Aumentar o pH", "isCorrect": false },
+            { "text": "C) Equilibrar a transferência de íons", "isCorrect": true },
+            { "text": "D) Precipitar os metais", "isCorrect": false },
+            { "text": "E) Impedir a reação", "isCorrect": false },
+        ],
+        "explanation": "Permite o fluxo de íons entre duas soluções, mantendo o equilíbrio de cargas na pilha.",
+    },
+    {
+        "question": "O gás hidrogênio pode ser produzido por:",
+        "answers": [
+            { "text": "A) Reação entre ácido e metal", "isCorrect": true },
+            { "text": "B) Dissolução de sal em água", "isCorrect": false },
+            { "text": "C) Filtração da areia", "isCorrect": false },
+            { "text": "D) Sublimação do gelo seco", "isCorrect": false },
+            { "text": "E) Combustão do etanol", "isCorrect": false },
+        ],
+        "explanation": "Uma das formas de obtenção desse gás envolve uma reação entre metais e substâncias ácidas.",
+    },
+    {
+        "question": "Uma reação de neutralização completa entre ácido forte e base forte produz:",
+        "answers": [
+            { "text": "A) Sal e gás", "isCorrect": false },
+            { "text": "B) Sal e água", "isCorrect": true },
+            { "text": "C) Água e metal", "isCorrect": false },
+            { "text": "D) Sal e eletricidade", "isCorrect": false },
+            { "text": "E) Oxigênio e hidrogênio", "isCorrect": false },
+        ],
+        "explanation": "Uma reação onde ocorre o encontro entre íons H⁺ e OH⁻, formando um produto típico dessa reação.",
+    },
+    {
+        "question": "A fórmula do ácido fosfórico é:",
+        "answers": [
+            { "text": "A) H₃PO₄", "isCorrect": true },
+            { "text": "B) H₂SO₄", "isCorrect": false },
+            { "text": "C) HNO₃", "isCorrect": false },
+            { "text": "D) HCl", "isCorrect": false },
+            { "text": "E) H₂CO₃", "isCorrect": false },
+        ],
+        "explanation": "Esse composto é um ácido oxigenado triprótico bastante utilizado em fertilizantes e alimentos.",
+    },
+    {
+        "question": "O Kps (produto de solubilidade) está relacionado com:",
+        "answers": [
+            { "text": "A) Substâncias orgânicas", "isCorrect": false },
+            { "text": "B) Soluções iônicas pouco solúveis", "isCorrect": true },
+            { "text": "C) Isomeria óptica", "isCorrect": false },
+            { "text": "D) Soluções tampão", "isCorrect": false },
+            { "text": "E) Reações de neutralização", "isCorrect": false },
+        ],
+        "explanation": "Relacionado ao equilíbrio de dissolução de sais pouco solúveis em água.",
+    },
+    {
+        "question": "A eletrólise ígnea do NaCl produz:",
+        "answers": [
+            { "text": "A) H₂ e Cl₂", "isCorrect": false },
+            { "text": "B) Na e Cl₂", "isCorrect": true },
+            { "text": "C) NaOH e H₂", "isCorrect": false },
+            { "text": "D) NaClO e H₂", "isCorrect": false },
+            { "text": "E) Cl₂ e O₂", "isCorrect": false },
+        ],
+        "explanation": "Processo que decompõe esse composto fundido, liberando elementos em seu estado puro.",
+    },
+    {
+        "question": "Uma reação reversível é aquela que:",
+        "answers": [
+            { "text": "A) Não forma produtos", "isCorrect": false },
+            { "text": "B) Acontece apenas uma vez", "isCorrect": false },
+            { "text": "C) Pode ocorrer nos dois sentidos", "isCorrect": true },
+            { "text": "D) É sempre exotérmica", "isCorrect": false },
+            { "text": "E) É irreversível", "isCorrect": false },
+        ],
+        "explanation": "Tipo de reação que pode ocorrer nos dois sentidos, formando e refazendo reagentes e produtos.",
+    },
+    {
+        "question": "Quando a energia de ativação é muito alta, a reação:",
+        "answers": [
+            { "text": "A) É rápida", "isCorrect": false },
+            { "text": "B) É sempre exotérmica", "isCorrect": false },
+            { "text": "C) É muito lenta ou não ocorre", "isCorrect": true },
+            { "text": "D) É irreversível", "isCorrect": false },
+            { "text": "E) Forma mais produtos", "isCorrect": false },
+        ],
+        "explanation": "Dificulta o início de uma reação, exigindo maior fornecimento de energia para que ocorra.",
+    },
+    {
+        "question": "A equação balanceada da formação da água é:",
+        "answers": [
+            { "text": "A) H₂ + O₂ → H₂O₂", "isCorrect": false },
+            { "text": "B) H₂ + O₂ → H₂O", "isCorrect": false },
+            { "text": "C) 2H₂ + O₂ → 2H₂O", "isCorrect": true },
+            { "text": "D) 2H₂ + 2O₂ → 2H₂O", "isCorrect": false },
+            { "text": "E) 2H₂ + O₂ → H₂O₂", "isCorrect": false },
+        ],
+        "explanation": "Reação balanceada entre os elementos hidrogênio e oxigênio, formando a substância mais comum da Terra.",
+    }
+]
+}

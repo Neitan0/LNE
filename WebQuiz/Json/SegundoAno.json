@@ -1,0 +1,224 @@
+{
+    "questions": [
+    {
+        "question": "O nome do composto CH₄ é:",
+        "answers": [
+            { "text": "A) Metano", "isCorrect": true },
+            { "text": "B) Etano", "isCorrect": false },
+            { "text": "C) Propano", "isCorrect": false },
+            { "text": "D) Butano", "isCorrect": false },
+            { "text": "E) Etino", "isCorrect": false },
+        ],
+        "explanation": "Este é um hidrocarboneto saturado com um único átomo de carbono e hidrogênios ligados a ele. É o mais simples entre os alcanos.",
+    },
+    {
+        "question": "A função orgânica presente no ácido acético (CH₃COOH) é:",
+        "answers": [
+            { "text": "A) Álcool", "isCorrect": false },
+            { "text": "B) Éter", "isCorrect": false },
+            { "text": "C) Ácido carboxílico", "isCorrect": true },
+            { "text": "D) Aldeído", "isCorrect": false },
+            { "text": "E) Cetona", "isCorrect": false },
+        ],
+        "explanation": "Esse composto possui um grupo funcional caracterizado por um carbono com ligação dupla ao oxigênio e também ligado a uma hidroxila (–OH).",
+    },
+    {
+        "question": "Um exemplo de isomeria plana ocorre entre:",
+        "answers": [
+            { "text": "A) C₄H₁₀ e CH₄", "isCorrect": false },
+            { "text": "B) Etanol e dimetil éter", "isCorrect": true },
+            { "text": "C) NaCl e KCl", "isCorrect": false },
+            { "text": "D) CO₂ e H₂O", "isCorrect": false },
+            { "text": "E) CH₄ e C₂H₂", "isCorrect": false },
+        ],
+        "explanation": "Trata-se de compostos com mesma fórmula molecular, mas com estruturas diferentes devido à disposição dos átomos.",
+    },
+    {
+        "question": "Os alcanos são hidrocarbonetos que apresentam apenas:",
+        "answers": [
+            { "text": "A) Ligações duplas", "isCorrect": false },
+            { "text": "B) Ligações triplas", "isCorrect": false },
+            { "text": "C) Ligações simples", "isCorrect": true },
+            { "text": "D) Cadeias aromáticas", "isCorrect": false },
+            { "text": "E) Grupos hidroxila", "isCorrect": false },
+        ],
+        "explanation": "Essa classe de hidrocarbonetos se caracteriza por ligações simples entre os átomos de carbono, sem insaturações.",
+    },
+    {
+        "question": "A reação de esterificação ocorre entre:",
+        "answers": [
+            { "text": "A) Álcool e cetona", "isCorrect": false },
+            { "text": "B) Ácido e álcool", "isCorrect": true },
+            { "text": "C) Éter e ácido", "isCorrect": false },
+            { "text": "D) Aldeído e cetona", "isCorrect": false },
+            { "text": "E) Álcool e éster", "isCorrect": false },
+        ],
+        "explanation": "Processo em que se forma um éster, geralmente a partir da reação entre dois compostos com grupos funcionais específicos.",
+    },
+    {
+        "question": "Um composto aromático típico é:",
+        "answers": [
+            { "text": "A) Etano", "isCorrect": false },
+            { "text": "B) Benzeno", "isCorrect": true },
+            { "text": "C) Etanol", "isCorrect": false },
+            { "text": "D) Propano", "isCorrect": false },
+            { "text": "E) Pentano", "isCorrect": false },
+        ],
+        "explanation": "Esse tipo de composto possui um anel com elétrons π deslocalizados, sendo bastante estável e comum na química orgânica.",
+    },
+    {
+        "question": "A reação de adição ocorre principalmente com:",
+        "answers": [
+            { "text": "A) Alcanos", "isCorrect": false },
+            { "text": "B) Álcoois", "isCorrect": false },
+            { "text": "C) Alcenos e alcinos", "isCorrect": true },
+            { "text": "D) Éteres", "isCorrect": false },
+            { "text": "E) Aminas", "isCorrect": false },
+        ],
+        "explanation": "Esse tipo de reação acontece geralmente em compostos insaturados, onde ligações múltiplas são rompidas para entrada de novos átomos.",
+    },
+    {
+        "question": "A nomenclatura IUPAC do composto CH₃–CH₂–OH é:",
+        "answers": [
+            { "text": "A) Metanol", "isCorrect": false },
+            { "text": "B) Propanol", "isCorrect": false },
+            { "text": "C) Etanol", "isCorrect": true },
+            { "text": "D) Butanol", "isCorrect": false },
+            { "text": "E) Metanal", "isCorrect": false },
+        ],
+        "explanation": "Este é um álcool com dois carbonos na cadeia, e a nomenclatura sistemática segue regras específicas de prefixo, infixo e sufixo.",
+    },
+    {
+        "question": "Compostos com a mesma fórmula molecular, mas diferentes estruturas são chamados de:",
+        "answers": [
+            { "text": "A) Polímeros", "isCorrect": false },
+            { "text": "B) Isótopos", "isCorrect": false },
+            { "text": "C) Isômeros", "isCorrect": true },
+            { "text": "D) Alótropos", "isCorrect": false },
+            { "text": "E) Alcenos", "isCorrect": false },
+        ],
+        "explanation": "Quando moléculas compartilham a mesma composição molecular, mas diferem na disposição dos átomos.",
+    },
+    {
+        "question": "A função orgânica com grupo –NH₂ é:",
+        "answers": [
+            { "text": "A) Éster", "isCorrect": false },
+            { "text": "B) Éter", "isCorrect": false },
+            { "text": "C) Amina", "isCorrect": true },
+            { "text": "D) Ácido", "isCorrect": false },
+            { "text": "E) Aldeído", "isCorrect": false },
+        ],
+        "explanation": "Esse grupo funcional é composto por um nitrogênio ligado a dois hidrogênios e está presente em uma classe específica de compostos orgânicos.",
+    },
+    {
+        "question": "O eteno (C₂H₄) pertence à classe dos:",
+        "answers": [
+            { "text": "A) Alcanos", "isCorrect": false },
+            { "text": "B) Alcenos", "isCorrect": true },
+            { "text": "C) Aromáticos", "isCorrect": false },
+            { "text": "D) Ciclanos", "isCorrect": false },
+            { "text": "E) Álcoois", "isCorrect": false },
+        ],
+        "explanation": "Esse composto apresenta uma ligação dupla entre carbonos, sendo um tipo de hidrocarboneto insaturado.",
+    },
+    {
+        "question": "A presença de anéis conjugados é característica de:",
+        "answers": [
+            { "text": "A) Alcanos", "isCorrect": false },
+            { "text": "B) Aromáticos", "isCorrect": true },
+            { "text": "C) Ácidos carboxílicos", "isCorrect": false },
+            { "text": "D) Álcoois", "isCorrect": false },
+            { "text": "E) Aldeídos", "isCorrect": false },
+        ],
+        "explanation": "A presença de ligações duplas alternadas em um ciclo é uma característica marcante de uma classe de compostos muito estável.",
+    },
+    {
+        "question": "O monômero do polietileno é:",
+        "answers": [
+            { "text": "A) Eteno", "isCorrect": true },
+            { "text": "B) Etano", "isCorrect": false },
+            { "text": "C) Propeno", "isCorrect": false },
+            { "text": "D) Benzeno", "isCorrect": false },
+            { "text": "E) Acetileno", "isCorrect": false },
+        ],
+        "explanation": "Um polímero é formado por unidades repetidas (monômeros), e o polietileno é feito a partir de um composto com ligação dupla.",
+    },
+    {
+        "question": "Um exemplo de polímero natural é:",
+        "answers": [
+            { "text": "A) PVC", "isCorrect": false },
+            { "text": "B) Teflon", "isCorrect": false },
+            { "text": "C) Celulose", "isCorrect": true },
+            { "text": "D) Poliestireno", "isCorrect": false },
+            { "text": "E) Polietileno", "isCorrect": false },
+        ],
+        "explanation": "Diferentemente dos sintéticos, esses polímeros ocorrem na natureza e são constituídos por moléculas orgânicas complexas.",
+    },
+    {
+        "question": "Qual é o tipo de reação que ocorre na formação de sabões?",
+        "answers": [
+            { "text": "A) Esterificação", "isCorrect": false },
+            { "text": "B) Saponificação", "isCorrect": true },
+            { "text": "C) Hidrólise ácida", "isCorrect": false },
+            { "text": "D) Oxidação", "isCorrect": false },
+            { "text": "E) Adição", "isCorrect": false },
+        ],
+        "explanation": "Essa reação é conhecida por envolver gorduras e bases fortes, formando sais orgânicos utilizados na limpeza.",
+    },
+    {
+        "question": "Um composto de cadeia saturada e acíclica é um:",
+        "answers": [
+            { "text": "A) Alceno", "isCorrect": false },
+            { "text": "B) Alcano", "isCorrect": true },
+            { "text": "C) Aromático", "isCorrect": false },
+            { "text": "D) Éter", "isCorrect": false },
+            { "text": "E) Álcool", "isCorrect": false },
+        ],
+        "explanation": "Refere-se a uma estrutura com apenas ligações simples e que não possui ciclo.",
+    },
+    {
+        "question": "As cadeias carbônicas ramificadas possuem:",
+        "answers": [
+            { "text": "A) Apenas carbonos lineares", "isCorrect": false },
+            { "text": "B) Cadeia aberta e linear", "isCorrect": false },
+            { "text": "C) Ligações duplas", "isCorrect": false },
+            { "text": "D) Carbonos em ramificações laterais", "isCorrect": true },
+            { "text": "E) Anéis aromáticos", "isCorrect": false },
+        ],
+        "explanation": "Nesses compostos, há átomos de carbono que formam \"galhos\" saindo da cadeia principal.",
+    },
+    {
+        "question": "Qual das substâncias apresenta carbono quiral?",
+        "answers": [
+            { "text": "A) CH₄", "isCorrect": false },
+            { "text": "B) C₂H₆", "isCorrect": false },
+            { "text": "C) CH₃–CH(OH)–CH₃", "isCorrect": false },
+            { "text": "D) CH₃–CH₂–CH₃", "isCorrect": false },
+            { "text": "E) CH₃–CH(OH)–COOH", "isCorrect": true },
+        ],
+        "explanation": "Um carbono assimétrico está ligado a quatro grupos diferentes, o que pode causar isomeria óptica.",
+    },
+    {
+        "question": "A isomeria óptica ocorre devido à:",
+        "answers": [
+            { "text": "A) Cadeia saturada", "isCorrect": false },
+            { "text": "B) Cadeia aromática", "isCorrect": false },
+            { "text": "C) Presença de carbono assimétrico", "isCorrect": true },
+            { "text": "D) Presença de éteres", "isCorrect": false },
+            { "text": "E) Reações de neutralização", "isCorrect": false },
+        ],
+        "explanation": "Esse tipo de isomeria depende da presença de um centro quiral, o que permite a formação de enantiômeros.",
+    },
+    {
+        "question": "A função presente no composto CH₃COCH₃ é:",
+        "answers": [
+            { "text": "A) Aldeído", "isCorrect": false },
+            { "text": "B) Álcool", "isCorrect": false },
+            { "text": "C) Éster", "isCorrect": false },
+            { "text": "D) Cetona", "isCorrect": true },
+            { "text": "E) Ácido", "isCorrect": false },
+        ],
+        "explanation": "Esse composto apresenta um grupo funcional com um carbono ligado a dois outros grupos e a um oxigênio com ligação dupla.",
+    }
+  ]
+}
