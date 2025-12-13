@@ -8,33 +8,59 @@
 import SwiftUI
 
 struct QuizView: View {
-    let quizVM: QuizViewModel
-    var Escolaridade: String
-    @State var DataQuestions: QuizData = .empty
+    // ⭐️ Alteração 1: A View deve ser a dona da VM usando @State para Observable ⭐️
+    // Se a VM for injetada, use @Bindable na assinatura. Aqui, assumimos que ela é a dona.
+    @State var quizVM = QuizViewModel()
+    
+    var Escolaridade: String  // Mantido para possível filtragem futura
+    
+    // As propriedades @State DataQuestions e Escolaridade não são mais necessárias
+    // Opcional: Remova o `DataQuestions` se não for mais usado
+    
     var body: some View {
         ZStack {
             VStack {
-                
-                if quizVM.currentIndex < DataQuestions.questions.count {
+                // ⭐️ Novo gerenciamento de estado: Carregando / Erro ⭐️
+                if quizVM.isLoading {
+                    ProgressView("Carregando Quiz...")
+                        .padding()
+                } else if let error = quizVM.errorMessage {
+                    Text("Erro ao carregar dados: \(error)")
+                        .foregroundStyle(.red)
+                }
+                // ⭐️ Acesso à Questão Atual ⭐️
+                else if let question = quizVM.currentQuestion {
+                    
+                    // --- Display de Vidas e Progresso ---
                     VStack(alignment: .trailing) {
                         HStack(spacing: 15) {
                             ForEach(0..<3) { index in
                                 Image(systemName: "heart.fill")
-                                    .foregroundStyle(index < (3 - quizVM.incorrectAnswersSelected.count) ? .red : .gray)
+                                // Use incorrectAnswersSelected.count para as vidas
+                                    .foregroundStyle(
+                                        index
+                                        < (3
+                                           - quizVM
+                                            .incorrectAnswersSelected.count)
+                                        ? .red : .gray
+                                    )
                             }
                         }
                         .padding()
                         ZStack {
-                            ProgressBar(progress: CGFloat(quizVM.currentIndex) / CGFloat(DataQuestions.questions.count))
-                            Text("\((CGFloat(quizVM.currentIndex) / CGFloat(DataQuestions.questions.count) * 100).formatted())%")
-                            
+                            ProgressBar(
+                                progress: CGFloat(quizVM.currentIndex)
+                                / CGFloat(quizVM.totalQuestionsCount)
+                            )
+                            Text(quizVM.progressPercentageText)  // <<-- ESTA É A ALTERAÇÃO!
                         }
                     }
-                    .padding(.bottom,30)
-                    let question = DataQuestions.questions[quizVM.currentIndex]
+                    .padding(.bottom, 30)
+                    
+                    // --- Questão e Botão de Explicação ---
                     VStack(spacing: 20) {
                         HStack {
-                            Text(question.question)
+                            Text(question.question)  // Acesso direto à questão atual
                                 .font(.title3)
                                 .padding()
                                 .foregroundStyle(.black)
@@ -45,7 +71,7 @@ struct QuizView: View {
                                 .withTranslateIcon {
                                     quizVM.textToTranslate = question.question
                                 }
-                            Button{
+                            Button {
                                 withAnimation {
                                     quizVM.showExplanation.toggle()
                                 }
@@ -60,22 +86,25 @@ struct QuizView: View {
                                     )
                             }
                         }
+                        
+                        // --- Respostas ---
                         VStack {
-                            ForEach(question.answers, id: \.text) { answer in
+                            // ⭐️ Itera sobre as respostas da questão atual ⭐️
+                            ForEach(question.answers ?? [], id: \.id) {
+                                answer in
                                 HStack(alignment: .center) {
-                                    //BUTTON DAS RESPOSTAS
+                                    // ⭐️ Alteração 2: Passa a VM e a resposta para o componente ⭐️
                                     ButtonsQuiz(quizVM: quizVM, answer: answer)
                                 }
                             }
-                            .onChange(of: quizVM.currentIndex) { _ in
-                                quizVM.incorrectAnswersSelected.removeAll()
-                                quizVM.showExplanation = false
-                            }
+                            // O onChange não é mais necessário aqui.
                         }
                     }
+                    
+                    // --- Explicação ---
                     if quizVM.showExplanation {
                         HStack {
-                            Text(question.explanation)
+                            Text(question.explanation ?? "Sem explicações disponíveis.")
                                 .padding()
                                 .font(.caption)
                                 .foregroundStyle(.black)
@@ -85,50 +114,40 @@ struct QuizView: View {
                                 .frame(maxWidth: 300)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .withTranslateIcon {
-                                    quizVM.textToTranslate = question.explanation
+                                    quizVM.textToTranslate = question.explanation ?? "Sem explicações disponíveis."
                                 }
                         }
                         .padding(.top,50)
                         .padding(.trailing,30)
-
                     }
+                    
                 } else {
+                    // --- Quiz Concluído ---
                     Spacer()
                     VStack {
                         Text("Quiz concluído!")
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(16)
-                        Text("Quantidade de acertos: \(quizVM.correctQuestions) de \(DataQuestions.questions.count)")
-                            .font(.title3)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(16)
+                        // ...
+                        // Use quizVM.totalQuestionsCount
+                        Text(
+                            "Acertos: \(quizVM.correctQuestions) de \(quizVM.totalQuestionsCount)"
+                        )
+                        // ...
                     }
-                    .foregroundStyle(.black)
-                    .padding()
+                    // ...
                     Spacer()
                 }
-                Spacer()
                 
+                Spacer()
             }
-            .animation(.easeInOut)
+            .animation(.easeInOut, value: quizVM.currentIndex)
             .foregroundStyle(.white)
-            .background{
+            .background {
                 Image("background")
             }
-            .onAppear {
-                DataQuestions = quizVM.loadQuizData(Escolaridade: Escolaridade) ?? .empty
-                quizVM.currentIndex = 0
-                quizVM.correctQuestions = 0
+            // ⭐️ Alteração 3: Chama a busca de dados no .task ⭐️
+            .task {
+                await quizVM.fetchSeries()
             }
         }
     }
-    
 }
-
-#Preview {
-    QuizView(quizVM: QuizViewModel(), Escolaridade: "NonoAno")
-//    ContentView()
-}
-

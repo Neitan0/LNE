@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ButtonsQuiz: View {
-    var quizVM: QuizViewModel
+    // A VM está correta, usando @Observable
+    @Bindable var quizVM: QuizViewModel // Use @Bindable se a View não for a dona e o componente precisar de escrita
     var answer: Answer
     
+    // ⭐️ AJUSTES NO CÁLCULO DE ESTADO ⭐️
     private var state: AnswerState {
-        if quizVM.incorrectAnswersSelected.contains(answer.text) {
+        // 1. Verificação de Incorreta: Usa a propriedade 'answer' do modelo
+        if quizVM.incorrectAnswersSelected.contains(answer.answer) {
             return .incorrect
-        } else if quizVM.isFlashing && answer.isCorrect {
+        // 2. Verificação de Correta (Flashing): Usa a propriedade 'is_correct' do modelo
+        } else if quizVM.isFlashing && answer.is_correct {
             return .correct
         } else {
             return .normal
@@ -23,13 +27,13 @@ struct ButtonsQuiz: View {
     
     var body: some View {
         Button {
+            // O nome da função na VM é 'NextQuestion'
             quizVM.NextQuestion(answer: answer)
-            // Define cor e anima
         } label: {
-            Text(answer.text)
+            Text(answer.answer) // ⭐️ Usa a propriedade 'answer' para o texto ⭐️
                 .font(.caption)
                 .padding()
-                .frame(width: 250,alignment: .leading)
+                .frame(width: 250, alignment: .leading)
                 .foregroundStyle(.black)
                 .background(
                     {
@@ -41,9 +45,9 @@ struct ButtonsQuiz: View {
                     }()
                 )
                 .cornerRadius(16)
-                .padding(.trailing,30)
+                .padding(.trailing, 30)
                 .withTranslateIcon {
-                    quizVM.textToTranslate = answer.text
+                    quizVM.textToTranslate = answer.answer
                 }
                 .animation(
                     quizVM.isFlashing && state == .correct
@@ -56,9 +60,9 @@ struct ButtonsQuiz: View {
     }
 }
 
-#Preview {
-    ButtonsQuiz(quizVM: QuizViewModel(), answer: Answer(text: "Teste", isCorrect: true))
-    ButtonsQuiz(quizVM: QuizViewModel(), answer: Answer(text: "Teste", isCorrect: false))
-    ButtonsQuiz(quizVM: QuizViewModel(), answer: Answer(text: "Teste", isCorrect: false))
-    ButtonsQuiz(quizVM: QuizViewModel(), answer: Answer(text: "Teste", isCorrect: false))
-}
+//#Preview {
+//    ButtonsQuiz(quizVM: QuizViewModel(), answer: Answer(text: "Teste", isCorrect: true))
+//    ButtonsQuiz(quizVM: QuizViewModel(), answer: Answer(text: "Teste", isCorrect: false))
+//    ButtonsQuiz(quizVM: QuizViewModel(), answer: Answer(text: "Teste", isCorrect: false))
+//    ButtonsQuiz(quizVM: QuizViewModel(), answer: Answer(text: "Teste", isCorrect: false))
+//}
