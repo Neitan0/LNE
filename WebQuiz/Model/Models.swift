@@ -16,6 +16,7 @@ enum AnswerState {
 enum Destination: Hashable {
     case ChoseDifficulty
     case QuizView(Escolaridade: String)
+    case LevelSelection(Escolaridade: Series)
 }
 
 
@@ -45,10 +46,9 @@ enum Destination: Hashable {
 //}
 
 
-import Foundation
 
 // Tabela 'series'
-struct Series: Codable, Identifiable {
+struct Series: Codable, Identifiable,Hashable {
     let id: Int
     let created_at: Date? // Pode ser String ou Date
     let name: String
@@ -56,7 +56,7 @@ struct Series: Codable, Identifiable {
 }
 
 // Tabela 'levels'
-struct Level: Codable {
+struct Level: Codable, Identifiable,Hashable {
     let id: Int
     let created_at: Date?
     let level_number: Int
@@ -68,7 +68,7 @@ struct Level: Codable {
 }
 
 // Tabela 'questions'
-struct Question: Codable {
+struct Question: Codable,Hashable {
     let id: Int
     let created_at: Date?
     let question: String
@@ -83,7 +83,7 @@ struct Question: Codable {
 }
 
 // Tabela 'answers'
-struct Answer: Codable {
+struct Answer: Codable,Hashable {
     let id: Int
     let question_id: Int // Chave estrangeira
     let answer: String

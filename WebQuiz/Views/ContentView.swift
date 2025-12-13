@@ -132,6 +132,8 @@ struct ContentView: View {
                                     }
                                 }
                             }
+                    case .LevelSelection(Escolaridade: let Escolaridade):
+                        LevelSelect(quizVM: quizVM, selectedSeries: Escolaridade)
                     }
                     
                 }
