@@ -15,31 +15,77 @@ enum AnswerState {
 
 enum Destination: Hashable {
     case ChoseDifficulty
-    case QuizView(Escolaridade: String)
+    case QuizView(Level: Int)
+    case LevelSelection(SerieID: Int)
 }
 
 
-struct QuizData: Decodable {
-    let questions: [Question]
+//struct QuizData: Decodable {
+//    let questions: [Question]
+//}
+//
+//struct Question: Decodable, Identifiable {
+//    var id = UUID()
+//    let question: String
+//    let answers: [Answer]
+//    let explanation: String
+//
+//    private enum CodingKeys: String, CodingKey {
+//        case question, answers, explanation
+//        // id não entra aqui!
+//    }
+//}
+//struct Answer: Decodable {
+//    let text: String
+//    let isCorrect: Bool
+//}
+//
+//
+//extension QuizData {
+//    static let empty = QuizData(questions: [])
+//}
+
+
+
+// Tabela 'series'
+struct Series: Codable, Identifiable,Hashable {
+    let id: Int
+    let created_at: Date? // Pode ser String ou Date
+    let name: String
+    var levels: [Level]?
 }
 
-struct Question: Decodable, Identifiable {
-    var id = UUID()
+// Tabela 'levels'
+struct Level: Codable, Identifiable,Hashable {
+    let id: Int
+    let created_at: Date?
+    let level_number: Int
+    let serie_id: Int // Chave estrangeira
+    
+    // Relacionamento: Nível pertence a uma Série
+    var series: Series? // Para carregar a série (Join)
+    var questions: [Question]?
+}
+
+// Tabela 'questions'
+struct Question: Codable,Hashable {
+    let id: Int
+    let created_at: Date?
     let question: String
-    let answers: [Answer]
-    let explanation: String
-
-    private enum CodingKeys: String, CodingKey {
-        case question, answers, explanation
-        // id não entra aqui!
-    }
-}
-struct Answer: Decodable {
-    let text: String
-    let isCorrect: Bool
+    let explanation: String?
+    let level_id: Int
+    
+    // Relacionamento: Questão pertence a um Nível
+    var levels: Level? // Para carregar o nível (Join)
+    
+    // Relacionamento: Resposta pertence a uma Questão
+    var answers: [Answer]? // Para carregar as respostas (Join)
 }
 
-
-extension QuizData {
-    static let empty = QuizData(questions: [])
+// Tabela 'answers'
+struct Answer: Codable,Hashable {
+    let id: Int
+    let question_id: Int // Chave estrangeira
+    let answer: String
+    let is_correct: Bool
 }

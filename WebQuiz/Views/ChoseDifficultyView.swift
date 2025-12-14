@@ -27,69 +27,31 @@ struct ChoseDifficultyView: View {
             }
             .padding(.top,30)
             VStack(spacing: 25) {
-                HStack {
-                    Button{
-                        navigationPath.append(Destination.QuizView(Escolaridade: "NonoAno"))
-                    } label: {
-                        Text("Nono Ano")
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black, radius: 5, x: 5, y:5)
-                            .withTranslateIcon {
-                                quizVM.textToTranslate = "Nono Ano"
-                            }
+                ForEach(quizVM.series) { serie in
+                    HStack {
+                        Button{
+                            navigationPath.append(Destination.LevelSelection(SerieID: serie.id))
+                        } label: {
+                            Text(serie.name)
+                                .padding()
+                                .background(.white)
+                                .cornerRadius(10)
+                                .shadow(color: .black, radius: 5, x: 5, y:5)
+                                .withTranslateIcon {
+                                    quizVM.textToTranslate = serie.name
+                                }
+                        }
                     }
                 }
-                
-                HStack {
-                    Button{
-                        navigationPath.append(Destination.QuizView(Escolaridade: "PrimeiroAno"))
-                    } label: {
-                        Text("Primeiro Ano")
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black, radius: 5, x: 5, y:5)
-                            .withTranslateIcon {
-                                quizVM.textToTranslate = "Primeiro Ano"
-                            }
-                    }
-                }
-                
-                HStack {
-                    Button{
-                        navigationPath.append(Destination.QuizView(Escolaridade: "SegundoAno"))
-                    } label: {
-                        Text("Segundo Ano")
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black, radius: 5, x: 5, y:5)
-                            .withTranslateIcon {
-                                quizVM.textToTranslate = "Segundo Ano"
-                            }
-                    }
-                }
-                HStack {
-                    Button{
-                        navigationPath.append(Destination.QuizView(Escolaridade: "TerceiroAno"))
-                    } label: {
-                        Text("Terceiro Ano")
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(10)
-                            .shadow(color: .black, radius: 5, x: 5, y:5)
-                            .withTranslateIcon {
-                                quizVM.textToTranslate = "Terceiro Ano"
-                            }
-                    }
-                }
+            
             }
             
             .padding(.top,25)
             
             Spacer()
+        }
+        .task{
+                await quizVM.fetchSeriesData()
         }
         .position(x: UIScreen.main.bounds.width / 2.1, y: 370)
 //        .navigationBarBackButtonHidden(true)
