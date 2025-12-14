@@ -10,50 +10,50 @@ import Supabase
 
 
 protocol SupabaseRepositoryProtocol {
-    func fetchAllDataDeepJoin() async throws -> [Series]
+    func fetchSeries() async throws -> [Series]
+    func fetchLevels(forSeriesID seriesID: Int) async throws -> [Level]
+    func fetchQuizData(forLevelID levelID: Int) async throws -> [Question]
 }
 
 class SupabaseRepository: SupabaseRepositoryProtocol {
+    
     // Supabase client configuration using default Auth storage and options
     let SupaClient = SupabaseClient(
          supabaseURL: URL(string: "https://wwcvjftpyascuyzqtlnp.supabase.co")!,
          supabaseKey: "sb_publishable_EkATLv3QFXg-APhwAxUwkg_Qa6B5eRY"
      )
 
-    func fetchAllDataDeepJoin() async throws -> [Series] {
-        // 2. Crie a string de SELECT aninhada:
-        // Começa na tabela 'series' (o tipo de retorno principal)
-        let deepSelectQuery = SupaClient.from("series")
-            .select("""
-                *, 
-                levels(
-                    *, 
-                    questions(
-                        *, 
-                        answers(*)
-                    )
-                )
-            """)
-            
-        // 3. Execute e Decodifique no tipo principal: [Series]
-        let allSeries: [Series] = try await deepSelectQuery
-            .execute()
-            .value
-        
-        
-        return allSeries
-//        // 4. Use os dados (tudo está carregado em 'allSeries'):
-//        print("Total de Séries carregadas: \(allSeries.count)")
-//        
-//        if let firstSeries = allSeries.first,
-//           let firstLevel = firstSeries.levels?.first,
-//           let firstQuestion = firstLevel.questions?.first {
-//            
-//            print("\nPrimeira Série: \(firstSeries.name)")
-//            print("Primeiro Nível: \(firstLevel.level_number)")
-//            print("Primeira Questão: \(firstQuestion.question)")
-//            print("Total de Respostas para esta Questão: \(firstQuestion.answers?.count ?? 0)")
-//        }
-    }
+    // 1. Fetch das SÉRIES (Tela principal)
+        func fetchSeries() async throws -> [Series] {
+            return try await SupaClient
+                .from("series")
+                .select() // Pega apenas a Series (id, name, created_at)
+                .execute()
+                .value
+        }
+
+        // 2. Fetch dos LEVELS (Tela LevelSelect)
+        // Você precisa do ID da série para filtrar os níveis
+        func fetchLevels(forSeriesID seriesID: Int) async throws -> [Level] {
+            return try await SupaClient
+                .from("levels")
+                .select() // Pega Levels, filtrando pela Chave Estrangeira 'serie_id'
+                .eq("serie_id", value: seriesID)
+                .order("level_number", ascending: true) // Ordena para garantir a ordem (1, 2, 3...)
+                .execute()
+                .value
+        }
+
+        // 3. Fetch das QUESTÕES e RESPOSTAS (Tela QuizView)
+        // Você precisa do ID do nível para pegar as questões e as respostas
+        func fetchQuizData(forLevelID levelID: Int) async throws -> [Question] {
+            // Junção específica: Pega Questões e, embutido, suas Respostas
+            return try await SupaClient
+                .from("questions")
+                .select("*, answers(*)") // Junção para incluir as respostas
+                .eq("level_id", value: levelID) // Filtra pela Chave Estrangeira 'level_id'
+                .execute()
+                .value
+        }
     
 }

@@ -10,13 +10,12 @@ import SwiftUI
 struct QuizView: View {
     // ⭐️ Alteração 1: A View deve ser a dona da VM usando @State para Observable ⭐️
     // Se a VM for injetada, use @Bindable na assinatura. Aqui, assumimos que ela é a dona.
-    @State var quizVM = QuizViewModel()
-    
-    var Escolaridade: String  // Mantido para possível filtragem futura
-    
+    var quizVM: QuizViewModel
+    var LevelQuestions: Int
+
     // As propriedades @State DataQuestions e Escolaridade não são mais necessárias
     // Opcional: Remova o `DataQuestions` se não for mais usado
-    
+
     var body: some View {
         ZStack {
             VStack {
@@ -30,19 +29,19 @@ struct QuizView: View {
                 }
                 // ⭐️ Acesso à Questão Atual ⭐️
                 else if let question = quizVM.currentQuestion {
-                    
+
                     // --- Display de Vidas e Progresso ---
                     VStack(alignment: .trailing) {
                         HStack(spacing: 15) {
                             ForEach(0..<3) { index in
                                 Image(systemName: "heart.fill")
-                                // Use incorrectAnswersSelected.count para as vidas
+                                    // Use incorrectAnswersSelected.count para as vidas
                                     .foregroundStyle(
                                         index
-                                        < (3
-                                           - quizVM
-                                            .incorrectAnswersSelected.count)
-                                        ? .red : .gray
+                                            < (3
+                                                - quizVM
+                                                .incorrectAnswersSelected.count)
+                                            ? .red : .gray
                                     )
                             }
                         }
@@ -50,16 +49,17 @@ struct QuizView: View {
                         ZStack {
                             ProgressBar(
                                 progress: CGFloat(quizVM.currentIndex)
-                                / CGFloat(quizVM.totalQuestionsCount)
+                                    / CGFloat(quizVM.totalQuestionsCount)
                             )
                             Text(quizVM.progressPercentageText)  // <<-- ESTA É A ALTERAÇÃO!
                         }
                     }
                     .padding(.bottom, 30)
-                    
+
                     // --- Questão e Botão de Explicação ---
                     VStack(spacing: 20) {
                         HStack {
+
                             Text(question.question)  // Acesso direto à questão atual
                                 .font(.title3)
                                 .padding()
@@ -71,6 +71,7 @@ struct QuizView: View {
                                 .withTranslateIcon {
                                     quizVM.textToTranslate = question.question
                                 }
+
                             Button {
                                 withAnimation {
                                     quizVM.showExplanation.toggle()
@@ -86,7 +87,7 @@ struct QuizView: View {
                                     )
                             }
                         }
-                        
+
                         // --- Respostas ---
                         VStack {
                             // ⭐️ Itera sobre as respostas da questão atual ⭐️
@@ -100,27 +101,32 @@ struct QuizView: View {
                             // O onChange não é mais necessário aqui.
                         }
                     }
-                    
+
                     // --- Explicação ---
                     if quizVM.showExplanation {
                         HStack {
-                            Text(question.explanation ?? "Sem explicações disponíveis.")
-                                .padding()
-                                .font(.caption)
-                                .foregroundStyle(.black)
-                                .background(Color.yellow)
-                                .cornerRadius(16)
-                                .multilineTextAlignment(.leading)
-                                .frame(maxWidth: 300)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .withTranslateIcon {
-                                    quizVM.textToTranslate = question.explanation ?? "Sem explicações disponíveis."
-                                }
+                            Text(
+                                question.explanation
+                                    ?? "Sem explicações disponíveis."
+                            )
+                            .padding()
+                            .font(.caption)
+                            .foregroundStyle(.black)
+                            .background(Color.yellow)
+                            .cornerRadius(16)
+                            .multilineTextAlignment(.leading)
+                            .frame(maxWidth: 300)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .withTranslateIcon {
+                                quizVM.textToTranslate =
+                                    question.explanation
+                                    ?? "Sem explicações disponíveis."
+                            }
                         }
-                        .padding(.top,50)
-                        .padding(.trailing,30)
+                        .padding(.top, 50)
+                        .padding(.trailing, 30)
                     }
-                    
+
                 } else {
                     // --- Quiz Concluído ---
                     Spacer()
@@ -136,7 +142,7 @@ struct QuizView: View {
                     // ...
                     Spacer()
                 }
-                
+
                 Spacer()
             }
             .animation(.easeInOut, value: quizVM.currentIndex)
@@ -144,9 +150,8 @@ struct QuizView: View {
             .background {
                 Image("background")
             }
-            // ⭐️ Alteração 3: Chama a busca de dados no .task ⭐️
             .task {
-                await quizVM.fetchSeries()
+                await quizVM.fetchQuizData(forLevelID: LevelQuestions)
             }
         }
     }

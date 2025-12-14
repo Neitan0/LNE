@@ -30,7 +30,7 @@ struct ChoseDifficultyView: View {
                 ForEach(quizVM.series) { serie in
                     HStack {
                         Button{
-                            navigationPath.append(Destination.QuizView(Escolaridade: serie.name))
+                            navigationPath.append(Destination.LevelSelection(SerieID: serie.id))
                         } label: {
                             Text(serie.name)
                                 .padding()
@@ -49,6 +49,9 @@ struct ChoseDifficultyView: View {
             .padding(.top,25)
             
             Spacer()
+        }
+        .task{
+                await quizVM.fetchSeriesData()
         }
         .position(x: UIScreen.main.bounds.width / 2.1, y: 370)
 //        .navigationBarBackButtonHidden(true)

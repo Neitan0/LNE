@@ -15,8 +15,8 @@ enum AnswerState {
 
 enum Destination: Hashable {
     case ChoseDifficulty
-    case QuizView(Escolaridade: String)
-    case LevelSelection(Escolaridade: Series)
+    case QuizView(Level: Int)
+    case LevelSelection(SerieID: Int)
 }
 
 

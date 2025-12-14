@@ -91,8 +91,8 @@ struct ContentView: View {
                             .frame(width: 35, height: 35)
                             .bold()
                             .padding()
-                            .background(Circle().fill(.ultraThinMaterial).frame(width: 35, height: 35))
-                            .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1).frame(width: 35, height: 35))
+//                            .background(Circle().fill(.ultraThinMaterial).frame(width: 35, height: 35))
+//                            .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1).frame(width: 35, height: 35))
                             .shadow(color: .black.opacity(0.6), radius: 4, x: 0, y: 2)
                     }
                 }
@@ -109,13 +109,13 @@ struct ContentView: View {
                                         .frame(width: 35, height: 35)
                                         .bold()
                                         .padding()
-                                        .background(Circle().fill(.ultraThinMaterial).frame(width: 35, height: 35))
-                                        .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1).frame(width: 35, height: 35))
+//                                        .background(Circle().fill(.ultraThinMaterial).frame(width: 35, height: 35))
+//                                        .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1).frame(width: 35, height: 35))
                                         .shadow(color: .black.opacity(0.6), radius: 4, x: 0, y: 2)
                                 }
                             }
-                    case .QuizView(Escolaridade: let escolaridade):
-                        QuizView(quizVM: quizVM, Escolaridade: escolaridade)
+                    case .QuizView(Level: let level):
+                        QuizView(quizVM: quizVM, LevelQuestions: level)
                             .toolbar {
                                 HStack {
                                     Button{
@@ -126,14 +126,14 @@ struct ContentView: View {
                                             .frame(width: 35, height: 35)
                                             .bold()
                                             .padding()
-                                            .background(Circle().fill(.ultraThinMaterial).frame(width: 35, height: 35))
-                                            .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1).frame(width: 35, height: 35))
+//                                            .background(Circle().fill(.ultraThinMaterial).frame(width: 35, height: 35))
+//                                            .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1).frame(width: 35, height: 35))
                                             .shadow(color: .black.opacity(0.6), radius: 4, x: 0, y: 2)
                                     }
                                 }
                             }
-                    case .LevelSelection(Escolaridade: let Escolaridade):
-                        LevelSelect(quizVM: quizVM, selectedSeries: Escolaridade)
+                    case .LevelSelection(SerieID: let serieID):
+                        LevelSelect(navigationPath: $navigationPath, quizVM: quizVM, selectedSeries: serieID)
                     }
                     
                 }
