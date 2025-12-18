@@ -19,44 +19,48 @@ struct ChoseDifficultyView: View {
                         .padding()
                         .background(.white)
                         .cornerRadius(10)
-                        .shadow(color: .black, radius: 5, x: 5, y:5)
+                        .shadow(color: .black, radius: 5, x: 5, y: 5)
                         .withTranslateIcon {
-                            quizVM.textToTranslate = "Escolha seu nivel de escolaridade!"
+                            quizVM.textToTranslate =
+                                "Escolha seu nivel de escolaridade!"
                         }
                 }
             }
-            .padding(.top,30)
+            .padding(.top, 30)
             VStack(spacing: 25) {
                 ForEach(quizVM.series) { serie in
                     HStack {
-                        Button{
-                            navigationPath.append(Destination.LevelSelection(SerieID: serie.id))
+                        Button {
+                            navigationPath.append(
+                                Destination.LevelSelection(SerieID: serie.id)
+                            )
                         } label: {
                             Text(serie.name)
                                 .padding()
                                 .background(.white)
                                 .cornerRadius(10)
-                                .shadow(color: .black, radius: 5, x: 5, y:5)
+                                .shadow(color: .black, radius: 5, x: 5, y: 5)
                                 .withTranslateIcon {
                                     quizVM.textToTranslate = serie.name
                                 }
                         }
                     }
                 }
-            
+
             }
-            
-            .padding(.top,25)
-            
+
+            .padding(.top, 25)
+
             Spacer()
         }
-        .task{
-                await quizVM.fetchSeriesData()
+        .task {
+            await quizVM.fetchSeriesData()
+            print("aaaa")
         }
         .position(x: UIScreen.main.bounds.width / 2.1, y: 370)
-//        .navigationBarBackButtonHidden(true)
+        //        .navigationBarBackButtonHidden(true)
         .foregroundStyle(.black)
-        .background{
+        .background {
             Image("background")
         }
     }

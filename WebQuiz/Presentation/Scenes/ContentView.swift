@@ -96,46 +96,8 @@ struct ContentView: View {
                             .shadow(color: .black.opacity(0.6), radius: 4, x: 0, y: 2)
                     }
                 }
-                .navigationDestination(for: Destination.self){ destination in
-                    switch destination {
-                    case .ChoseDifficulty:
-                        ChoseDifficultyView(quizVM: quizVM, navigationPath: $navigationPath)
-                            .toolbar {
-                                Button{
-                                    isVLibrasExpanded.toggle()
-                                } label: {
-                                    Image("librasSymbol")
-                                        .resizable()
-                                        .frame(width: 35, height: 35)
-                                        .bold()
-                                        .padding()
-//                                        .background(Circle().fill(.ultraThinMaterial).frame(width: 35, height: 35))
-//                                        .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1).frame(width: 35, height: 35))
-                                        .shadow(color: .black.opacity(0.6), radius: 4, x: 0, y: 2)
-                                }
-                            }
-                    case .QuizView(Level: let level):
-                        QuizView(quizVM: quizVM, levelID: level)
-                            .toolbar {
-                                HStack {
-                                    Button{
-                                        isVLibrasExpanded.toggle()
-                                    } label: {
-                                        Image("librasSymbol")
-                                            .resizable()
-                                            .frame(width: 35, height: 35)
-                                            .bold()
-                                            .padding()
-//                                            .background(Circle().fill(.ultraThinMaterial).frame(width: 35, height: 35))
-//                                            .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1).frame(width: 35, height: 35))
-                                            .shadow(color: .black.opacity(0.6), radius: 4, x: 0, y: 2)
-                                    }
-                                }
-                            }
-                    case .LevelSelection(SerieID: let serieID):
-                        LevelSelect(navigationPath: $navigationPath, quizVM: quizVM, selectedSeries: serieID)
-                    }
-                    
+                .navigationDestination(for: Destination.self) { destination in
+                    ViewFactory.makeView(for: destination, quizVM: quizVM, navigationPath: $navigationPath)
                 }
                 
                 

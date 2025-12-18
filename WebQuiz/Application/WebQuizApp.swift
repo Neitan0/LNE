@@ -10,8 +10,8 @@ import Supabase
 @main
 struct WebQuizApp: App {
     let supabaseClient = SupabaseClient(
-        supabaseURL: URL(string: "https://seu-projeto.supabase.co")!,
-        supabaseKey: "SUA_KEY"
+        supabaseURL: URL(string: "https://wwcvjftpyascuyzqtlnp.supabase.co")!,
+        supabaseKey: "sb_publishable_EkATLv3QFXg-APhwAxUwkg_Qa6B5eRY"
     )
 
     var body: some Scene {
