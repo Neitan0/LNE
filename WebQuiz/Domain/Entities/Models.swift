@@ -13,39 +13,11 @@ enum AnswerState {
     case incorrect
 }
 
-enum Destination: Hashable {
-    case ChoseDifficulty
-    case QuizView(Level: Int)
-    case LevelSelection(SerieID: Int)
+enum RepositoryError: Error {
+    case networkError(String)
+    case decodeError
+    case emptyData
 }
-
-
-//struct QuizData: Decodable {
-//    let questions: [Question]
-//}
-//
-//struct Question: Decodable, Identifiable {
-//    var id = UUID()
-//    let question: String
-//    let answers: [Answer]
-//    let explanation: String
-//
-//    private enum CodingKeys: String, CodingKey {
-//        case question, answers, explanation
-//        // id não entra aqui!
-//    }
-//}
-//struct Answer: Decodable {
-//    let text: String
-//    let isCorrect: Bool
-//}
-//
-//
-//extension QuizData {
-//    static let empty = QuizData(questions: [])
-//}
-
-
 
 // Tabela 'series'
 struct Series: Codable, Identifiable,Hashable {

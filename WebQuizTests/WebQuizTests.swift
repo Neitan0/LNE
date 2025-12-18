@@ -6,115 +6,60 @@
 //
 
 import Testing
-import Supabase
 import Foundation
+@testable import WebQuiz
 
-// Tabela 'series'
-struct Series: Codable {
-    let id: Int
-    let created_at: Date? // Pode ser String ou Date
-    let name: String
-    var levels: [Level]?
-}
+@Suite final class QuizViewModelUnitTests {
 
-// Tabela 'levels'
-struct Level: Codable {
-    let id: Int
-    let created_at: Date?
-    let level_number: Int
-    let serie_id: Int // Chave estrangeira
-    
-    // Relacionamento: Nível pertence a uma Série
-    var series: Series? // Para carregar a série (Join)
-    var questions: [Question]?
-}
+    let mockRepository: MockSupabaseRepository
+    let viewModel: QuizViewModel
 
-// Tabela 'questions'
-struct Question: Codable {
-    let id: Int
-    let created_at: Date?
-    let question: String
-    let explanation: String?
-    let level_id: Int
-    
-    // Relacionamento: Questão pertence a um Nível
-    var levels: Level? // Para carregar o nível (Join)
-    
-    // Relacionamento: Resposta pertence a uma Questão
-    var answers: [Answer]? // Para carregar as respostas (Join)
-}
-
-// Tabela 'answers'
-struct Answer: Codable {
-    let id: Int
-    let question_id: Int // Chave estrangeira
-    let answer: String
-    let is_correct: Bool
-}
-
-struct WebQuizTests {
-    let SupaClient = SupabaseClient(supabaseURL: URL(string: "https://wwcvjftpyascuyzqtlnp.supabase.co")!, supabaseKey: "sb_publishable_EkATLv3QFXg-APhwAxUwkg_Qa6B5eRY")
-    
-    @Test func fetchAnswersTest() async throws {
-        do {
-            let repostas: [Answer] = try await SupaClient.from("answers").select("*").execute().value
-            print(repostas.first!.answer)
-        } catch {
-            print(error)
-        }
+    init() {
+        let mock = MockSupabaseRepository()
+        self.mockRepository = mock
+        self.viewModel = QuizViewModel(repository: mock)
     }
 
-    @Test func fetchAllDataDeepJoin() async throws {
-        // 2. Crie a string de SELECT aninhada:
-        // Começa na tabela 'series' (o tipo de retorno principal)
-        let deepSelectQuery = SupaClient.from("series")
-            .select("""
-                *, 
-                levels(
-                    *, 
-                    questions(
-                        *, 
-                        answers(*)
-                    )
-                )
-            """)
-            
-        // 3. Execute e Decodifique no tipo principal: [Series]
-        let allSeries: [Series] = try await deepSelectQuery
-            .execute()
-            .value
+    
+    @Test func testFetchSeriesSuccessUpdatesState() async throws {
+        #expect(viewModel.isLoading == false)
         
-        // 4. Use os dados (tudo está carregado em 'allSeries'):
-        print("Total de Séries carregadas: \(allSeries.count)")
+        await viewModel.fetchSeriesData()
         
-        if let firstSeries = allSeries.first,
-           let firstLevel = firstSeries.levels?.first,
-           let firstQuestion = firstLevel.questions?.first {
-            
-            print("\nPrimeira Série: \(firstSeries.name)")
-            print("Primeiro Nível: \(firstLevel.level_number)")
-            print("Primeira Questão: \(firstQuestion.question)")
-            print("Total de Respostas para esta Questão: \(firstQuestion.answers?.count ?? 0)")
-        }
-    }
-
-}
-
-
-class SupabaseClients {
-    
-    
-    let SupaClient = SupabaseClient(supabaseURL: URL(string: "https://xyzcompany.supabase.co")!, supabaseKey: "sb_publishable_EkATLv3QFXg-APhwAxUwkg_Qa6B5eRY")
-    
-    
-    
-   @Test func fetchAnswers() async {
-        do {
-           let repostas = try await SupaClient.from("answers").select("*").execute()
-            print(repostas)
-        } catch {
-            print(error)
-        }
+        #expect(viewModel.isLoading == false)
+        #expect(viewModel.series.count == 2, "Deveria carregar as 2 séries do Mock.")
+        #expect(viewModel.errorMessage == nil)
     }
     
+    @Test func testFetchSeriesFailureCapturesError() async {
+        self.mockRepository.shouldThrowError = true
+        
+        await viewModel.fetchSeriesData()
+        
+        #expect(viewModel.isLoading == false)
+        #expect(viewModel.errorMessage != nil, "Deveria ter capturado o erro de rede simulado.")
+        #expect(viewModel.series.isEmpty, "As séries devem estar vazias após a falha.")
+    }
+
+    
+    @Test func testProgressPercentageCalculation() {
+        viewModel.questions = [MockSupabaseRepository().mockQuestions[0], MockSupabaseRepository().mockQuestions[0]] // 2 questões
+        viewModel.totalQuestionsCount = 2
+        viewModel.currentIndex = 1
+        
+        let progress = viewModel.progressPercentageText
+        
+        #expect(progress == "50%", "O progresso deveria ser 50% com 1/2 questões completas.")
+    }
+    
+    @Test func testNextQuestionOnCorrectAnswer() {
+        let mockAnswer = Answer(id: 1, question_id: 1, answer: "Resposta Certa", is_correct: true)
+        viewModel.currentIndex = 0
+        viewModel.correctQuestions = 0
+        
+        viewModel.NextQuestion(answer: mockAnswer)
+        
+        #expect(viewModel.ButtoesDisable == true, "O botão deve ser desabilitado imediatamente.")
+        
+    }
 }

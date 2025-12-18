@@ -62,6 +62,6 @@ struct ChoseDifficultyView: View {
     }
 }
 
-#Preview {
-    ChoseDifficultyView(quizVM: QuizViewModel(), navigationPath: .constant(NavigationPath()))
-}
+//#Preview {
+//    ChoseDifficultyView(quizVM: QuizViewModel(), navigationPath: .constant(NavigationPath()))
+//}

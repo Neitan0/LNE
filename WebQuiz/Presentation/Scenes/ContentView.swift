@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var navigationPath = NavigationPath()
     @State private var isVLibrasExpanded = false
-    @State var quizVM = QuizViewModel()
+    @State var quizVM: QuizViewModel
     var body: some View {
         ZStack {
             if isVLibrasExpanded == true {
@@ -115,7 +115,7 @@ struct ContentView: View {
                                 }
                             }
                     case .QuizView(Level: let level):
-                        QuizView(quizVM: quizVM, LevelQuestions: level)
+                        QuizView(quizVM: quizVM, levelID: level)
                             .toolbar {
                                 HStack {
                                     Button{
@@ -146,6 +146,6 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView()
+//}
