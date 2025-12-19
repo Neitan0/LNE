@@ -5,61 +5,63 @@
 //  Created by Natanael nogueira on 06/07/25.
 //
 
-import Testing
-import Foundation
+import XCTest
+@testable import WebQuiz // Nome do seu projeto
+import XCTest
 @testable import WebQuiz
 
-@Suite final class QuizViewModelUnitTests {
 
-    let mockRepository: MockSupabaseRepository
-    let viewModel: QuizViewModel
+@MainActor
+final class QuizViewModelTests: XCTestCase {
+    var vm: QuizViewModel!
+    var mockRepo: MockQuizRepository!
 
-    init() {
-        let mock = MockSupabaseRepository()
-        self.mockRepository = mock
-        self.viewModel = QuizViewModel(repository: mock)
-    }
-
-    
-    @Test func testFetchSeriesSuccessUpdatesState() async throws {
-        #expect(viewModel.isLoading == false)
-        
-        await viewModel.fetchSeriesData()
-        
-        #expect(viewModel.isLoading == false)
-        #expect(viewModel.series.count == 2, "Deveria carregar as 2 séries do Mock.")
-        #expect(viewModel.errorMessage == nil)
-    }
-    
-    @Test func testFetchSeriesFailureCapturesError() async {
-        self.mockRepository.shouldThrowError = true
-        
-        await viewModel.fetchSeriesData()
-        
-        #expect(viewModel.isLoading == false)
-        #expect(viewModel.errorMessage != nil, "Deveria ter capturado o erro de rede simulado.")
-        #expect(viewModel.series.isEmpty, "As séries devem estar vazias após a falha.")
+    override func setUp() {
+        super.setUp()
+        mockRepo = MockQuizRepository()
+        vm = QuizViewModel(repository: mockRepo)
     }
 
-    
-    @Test func testProgressPercentageCalculation() {
-        viewModel.questions = [MockSupabaseRepository().mockQuestions[0], MockSupabaseRepository().mockQuestions[0]] // 2 questões
-        viewModel.totalQuestionsCount = 2
-        viewModel.currentIndex = 1
-        
-        let progress = viewModel.progressPercentageText
-        
-        #expect(progress == "50%", "O progresso deveria ser 50% com 1/2 questões completas.")
+    override func tearDown() {
+        vm = nil
+        mockRepo = nil
+        super.tearDown()
     }
     
-    @Test func testNextQuestionOnCorrectAnswer() {
-        let mockAnswer = Answer(id: 1, question_id: 1, answer: "Resposta Certa", is_correct: true)
-        viewModel.currentIndex = 0
-        viewModel.correctQuestions = 0
+    func testFetchQuizData_ShouldSetQuestions() async {
+        let question = Question(id: 1, created_at: Date(), question: "qual formula da agua", explanation: "", level_id: 1, answers: [])
+        mockRepo.mockedQuestions = [question]
         
-        viewModel.NextQuestion(answer: mockAnswer)
+        await vm.fetchQuizData(forLevelID: 1)
         
-        #expect(viewModel.ButtoesDisable == true, "O botão deve ser desabilitado imediatamente.")
-        
+        XCTAssertTrue(vm.questions.count == 1)
     }
+
+    func testHandleAnswerSelection_WhenCorrect_ShouldIncrementScore() async {
+        
+        let correctAnswer = Answer(id: 1, question_id: 1, answer: "Sim", is_correct: true)
+        let question = Question(id: 1, created_at: Date(), question: "qual formula da agua", explanation: "", level_id: 1, answers: [correctAnswer])
+        
+        mockRepo.mockedQuestions = [question]
+        await vm.fetchQuizData(forLevelID: 1)
+        
+        vm.handleAnswerSelection(correctAnswer)
+        
+        XCTAssertEqual(vm.correctQuestions, 1)
+    }
+    
+    func testHandleAnswerSelection_WhenIncorrect_ShouldAddToIncorrectList() async {
+        let wrongAnswer = Answer(id: 2, question_id: 1, answer: "Não", is_correct: false)
+        let question = Question(id: 2, created_at: Date(), question: "qual formula da agua?", explanation: "", level_id: 1, answers: [wrongAnswer])
+        
+        mockRepo.mockedQuestions = [question]
+        await vm.fetchQuizData(forLevelID: 1)
+        
+        vm.handleAnswerSelection(wrongAnswer)
+        
+        XCTAssertEqual(vm.correctQuestions, 0)
+        XCTAssertTrue(vm.incorrectAnswersSelected.contains(wrongAnswer.answer))
+    }
+    
+    
 }
