@@ -12,28 +12,24 @@
 
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
+
 default_platform(:ios)
 
 platform :ios do
   
   desc "Verifica se os dois targets estão compilando corretamente"
   lane :check_build do
-    # Build para o Target Aluno
-    build_app(
+  
+    run_tests(
       scheme: "WebQuiz",
-      workspace: "./WebQuiz.xcworkspace",
-      skip_package_ipa: true,
-      export_method: "development",
-      destination: "generic/platform=iOS"
+      device: "iPhone 15", # Um simulador padrão que tem no Bitrise
+      build_for_testing: true
     )
 
-    # Build para o Target Admin
-    build_app(
+    run_tests(
       scheme: "WebQuizAdmin",
-      workspace: "./WebQuiz.xcworkspace",
-      skip_package_ipa: true,
-      export_method: "development",
-      destination: "generic/platform=iOS" 
+      device: "iPhone 15",
+      build_for_testing: true
     )
   end
 
