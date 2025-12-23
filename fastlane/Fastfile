@@ -16,24 +16,12 @@
 default_platform(:ios)
 
 platform :ios do
-  
-  desc "Valida a compilação dos targets (Sem rodar testes e sem assinatura)"
+  desc "Valida a compilação via linha de comando pura para evitar timeout"
   lane :check_build do
-    # Compila o Target Aluno para Simulador
-    build_app(
-      scheme: "WebQuiz",
-      destination: "platform=iOS Simulator,name=iPhone 15",
-      skip_codesigning: true,
-      skip_package_ipa: true
-    )
-
-    # Compila o Target Admin para Simulador
-    build_app(
-      scheme: "WebQuizAdmin",
-      destination: "platform=iOS Simulator,name=iPhone 15",
-      skip_codesigning: true,
-      skip_package_ipa: true
-    )
+    # Build para o Target Aluno
+    sh "xcodebuild -workspace WebQuiz.xcworkspace -scheme WebQuiz -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build"
+    
+    # Build para o Target Admin
+    sh "xcodebuild -workspace WebQuiz.xcworkspace -scheme WebQuizAdmin -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build"
   end
-
 end
