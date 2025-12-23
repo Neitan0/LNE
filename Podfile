@@ -16,4 +16,8 @@ target 'WebQuiz' do
     # Pods for testing
   end
 
+target 'WebQuizAdmin' do
+pod 'SnapKit'
+end
+
 end
