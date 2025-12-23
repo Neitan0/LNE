@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var navigationPath = NavigationPath()
     @State private var isVLibrasExpanded = false
-    @State var quizVM: QuizViewModel
+    @State var quizVM = QuizViewModelFactory.makeQuizViewModel()
     var body: some View {
         ZStack {
             if isVLibrasExpanded == true {

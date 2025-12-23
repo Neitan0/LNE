@@ -10,22 +10,17 @@ import SwiftUI
 enum ViewFactory {
     
     @MainActor
+    @ViewBuilder 
     static func makeView(for destination: Destination, quizVM: QuizViewModel, navigationPath: Binding<NavigationPath>) -> some View {
         switch destination {
         case .ChoseDifficulty:
-            return AnyView(
-                ChoseDifficultyView(quizVM: quizVM, navigationPath: navigationPath)
-            )
+            ChoseDifficultyView(quizVM: quizVM, navigationPath: navigationPath)
             
         case .LevelSelection(let serieID):
-            return AnyView(
-                LevelSelect(navigationPath: navigationPath, quizVM: quizVM, selectedSeries: serieID)
-            )
+            LevelSelect(navigationPath: navigationPath, quizVM: quizVM, selectedSeries: serieID)
             
         case .QuizView(let levelID):
-            return AnyView(
-                QuizView(quizVM: quizVM, levelID: levelID)
-            )
+            QuizView(quizVM: quizVM, levelID: levelID)
         }
     }
 }
