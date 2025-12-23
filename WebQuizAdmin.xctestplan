@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "B4F3E5CC-EAA9-4B60-8388-B0261D4557C0",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:WebQuiz.xcodeproj",
+      "identifier" : "3E4DB6B52EFA42B800603817",
+      "name" : "WebQuizAdmin"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:WebQuiz.xcodeproj",
+        "identifier" : "028E05E92E1B2A73005CFE7A",
+        "name" : "WebQuizTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:WebQuiz.xcodeproj",
+        "identifier" : "028E05F32E1B2A73005CFE7A",
+        "name" : "WebQuizUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

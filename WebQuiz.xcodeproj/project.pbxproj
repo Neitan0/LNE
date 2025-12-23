@@ -41,6 +41,20 @@
 			remoteGlobalIDString = 028E05D82E1B2A72005CFE7A;
 			remoteInfo = WebQuiz;
 		};
+		3E4DB81C2EFA6C4200603817 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 028E05D12E1B2A72005CFE7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E4DB6B52EFA42B800603817;
+			remoteInfo = WebQuizAdmin;
+		};
+		3E4DB81E2EFA6C4900603817 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 028E05D12E1B2A72005CFE7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E4DB6B52EFA42B800603817;
+			remoteInfo = WebQuizAdmin;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -238,6 +252,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3E4DB81D2EFA6C4200603817 /* PBXTargetDependency */,
 				028E05EC2E1B2A73005CFE7A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -261,6 +276,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3E4DB81F2EFA6C4900603817 /* PBXTargetDependency */,
 				028E05F62E1B2A73005CFE7A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -575,6 +591,16 @@
 			isa = PBXTargetDependency;
 			target = 028E05D82E1B2A72005CFE7A /* WebQuiz */;
 			targetProxy = 028E05F52E1B2A73005CFE7A /* PBXContainerItemProxy */;
+		};
+		3E4DB81D2EFA6C4200603817 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E4DB6B52EFA42B800603817 /* WebQuizAdmin */;
+			targetProxy = 3E4DB81C2EFA6C4200603817 /* PBXContainerItemProxy */;
+		};
+		3E4DB81F2EFA6C4900603817 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E4DB6B52EFA42B800603817 /* WebQuizAdmin */;
+			targetProxy = 3E4DB81E2EFA6C4900603817 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
