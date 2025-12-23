@@ -6,8 +6,6 @@
 //
 
 import XCTest
-@testable import WebQuiz // Nome do seu projeto
-import XCTest
 @testable import WebQuiz
 
 
