@@ -17,19 +17,22 @@ default_platform(:ios)
 
 platform :ios do
   
-  desc "Verifica se os dois targets estão compilando corretamente"
+  desc "Valida a compilação dos targets (Sem rodar testes e sem assinatura)"
   lane :check_build do
-  
-    run_tests(
+    # Compila o Target Aluno para Simulador
+    build_app(
       scheme: "WebQuiz",
-      device: "iPhone 15", # Um simulador padrão que tem no Bitrise
-      build_for_testing: true
+      destination: "platform=iOS Simulator,name=iPhone 15",
+      skip_codesigning: true,
+      skip_package_ipa: true
     )
 
-    run_tests(
+    # Compila o Target Admin para Simulador
+    build_app(
       scheme: "WebQuizAdmin",
-      device: "iPhone 15",
-      build_for_testing: true
+      destination: "platform=iOS Simulator,name=iPhone 15",
+      skip_codesigning: true,
+      skip_package_ipa: true
     )
   end
 
