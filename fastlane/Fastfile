@@ -16,15 +16,14 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Build check apenas do Target principal (Aluno)"
+desc "Compila e roda os testes do target principal WebQuiz"
   lane :check_build do
-    build_app(
+    run_tests(
       scheme: "WebQuiz",
-      workspace: "WebQuiz.xcworkspace",
-      destination: "generic/platform=iOS Simulator",
+      device: "iPhone 15",
       skip_codesigning: true,
-      skip_package_ipa: true,
-      clean: true
+      clean: true,
+      fail_build: true                 
     )
   end
 end
