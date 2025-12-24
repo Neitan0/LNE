@@ -16,11 +16,14 @@
 default_platform(:ios)
 
 platform :ios do
-desc "Compila e roda os testes do target principal WebQuiz"
+desc "Roda testes com relatório de cobertura de código"
   lane :check_build do
     run_tests(
+      workspace: "WebQuiz.xcworkspace",
       scheme: "WebQuiz",
       clean: true,
+      code_coverage: true,
+      output_types: "html,junit",    
       xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_IDENTITY='' PROVISIONING_PROFILE=''",
       fail_build: true
     )
