@@ -14,22 +14,37 @@
 # update_fastlane
 
 default_platform(:ios)
-
 platform :ios do
-desc "Roda testes com relatório de cobertura de código"
-  lane :check_build do
-  
-    output_directory = ENV["BITRISE_DEPLOY_DIR"] || "test_output"
 
-    run_tests(
-      workspace: "WebQuiz.xcworkspace",
+  desc "Roda testes (Uso diário)"
+  lane :check_build do
+    run_tests(scheme: "WebQuiz", output_directory: "test_output", output_types: "junit")
+  end
+
+  desc "Sobe para o TestFlight"
+  lane :beta do
+    # 1. Autentica na Apple (O Bitrise preencherá essas variáveis automaticamente)
+    api_key = app_store_connect_api_key(
+      key_id: ENV["BITRISE_APPLE_API_KEY_ID"],
+      issuer_id: ENV["BITRISE_APPLE_API_KEY_ISSUER_ID"],
+      key_content: ENV["BITRISE_APPLE_API_KEY_CONTENT"], # Conteúdo do arquivo .p8
+      is_key_content_base64: true
+    )
+
+    # 2. Roda os testes antes de tudo (Segurança)
+    check_build
+
+    # 3. Gera o arquivo .ipa assinado
+    build_app(
       scheme: "WebQuiz",
-      clean: true,
-      code_coverage: true,
-      output_directory: output_directory,
-      output_types: "html,junit",
-      xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_IDENTITY='' PROVISIONING_PROFILE=''",
-      fail_build: true
+      export_method: "app-store",
+      api_key: api_key
+    )
+
+    # 4. Envia para o TestFlight
+    upload_to_testflight(
+      api_key: api_key,
+      skip_waiting_for_build_processing: true
     )
   end
 end
