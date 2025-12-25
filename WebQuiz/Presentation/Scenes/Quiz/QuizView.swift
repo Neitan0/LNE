@@ -100,7 +100,6 @@ extension QuizView {
                         .fixedSize()
                 }
             }
-            
 
             // Lista de Respostas
             VStack(spacing: 12) {

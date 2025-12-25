@@ -18,12 +18,16 @@ default_platform(:ios)
 platform :ios do
 desc "Roda testes com relatório de cobertura de código"
   lane :check_build do
+  
+    output_directory = ENV["BITRISE_DEPLOY_DIR"] || "test_output"
+
     run_tests(
       workspace: "WebQuiz.xcworkspace",
       scheme: "WebQuiz",
       clean: true,
       code_coverage: true,
-      output_types: "html,junit",    
+      output_directory: output_directory, # <--- O segredo está aqui
+      output_types: "html,junit",
       xcargs: "CODE_SIGNING_ALLOWED=NO CODE_SIGNING_IDENTITY='' PROVISIONING_PROFILE=''",
       fail_build: true
     )

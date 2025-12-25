@@ -24,7 +24,6 @@ struct ButtonsQuiz: View {
     
     var body: some View {
         Button {
-            // ✅ Agora chamamos a função pública da nova VM
             quizVM.handleAnswerSelection(answer)
         } label: {
             Text(answer.answer)
@@ -38,7 +37,6 @@ struct ButtonsQuiz: View {
                 )
                 .cornerRadius(16)
                 .padding(.trailing, 30)
-                // Usando o seu Modifier de tradução
                 .withTranslateIcon {
                     quizVM.textToTranslate = answer.answer
                 }
@@ -49,7 +47,6 @@ struct ButtonsQuiz: View {
                     value: quizVM.isFlashing
                 )
         }
-        // ✅ Nome da variável atualizado
         .disabled(quizVM.isButtonsDisabled)
     }
 }

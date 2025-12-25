@@ -25,9 +25,6 @@ class QuizViewModel {
     var isLoading = false
     var errorMessage: String?
     var textToTranslate = ""
-
-    // --- COMPUTED PROPERTIES (Calculadas) ---
-    var totalQuestionsCount: Int { questions.count }
     
     var progressPercentageText: String {
         guard !questions.isEmpty else { return "0%" }
