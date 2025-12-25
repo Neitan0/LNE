@@ -37,7 +37,7 @@ platform :ios do
 
     # 1. Solicita certificados e perfis novos automaticamente
     get_certificates(api_key: api_key)
-    get_provisioning_profile(api_key: api_key, bundle_id: "LNE.WebQuiz")
+    get_provisioning_profile(api_key: api_key, app_identifier: "LNE.WebQuiz")
 
     # 2. Roda os testes
     check_build
