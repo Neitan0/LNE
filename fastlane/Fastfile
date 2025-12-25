@@ -48,6 +48,7 @@ platform :ios do
       scheme: "WebQuiz",
       export_method: "app-store",
       destination: "generic/platform=iOS",
+      xcargs: "ALLOW_PROVISIONING_DEVICE_REGISTRATION=YES", # Adicione esta linha
       export_options: {
         provisioningProfiles: {
           "LNE.WebQuiz" => profile
