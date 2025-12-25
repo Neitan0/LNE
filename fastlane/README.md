@@ -21,7 +21,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios check_build
 ```
 
-Verifica se os dois targets estão compilando corretamente
+Roda testes com relatório de cobertura de código
 
 ----
 
