@@ -20,31 +20,27 @@ platform :ios do
   lane :check_build do
     run_tests(scheme: "WebQuiz", output_directory: "test_output", output_types: "junit")
   end
+desc "Sobe para o TestFlight"
+lane :beta do
+  # 1. Autentica na Apple
+  api_key = app_store_connect_api_key(
+    key_id: ENV["BITRISE_APPLE_API_KEY_ID"],
+    issuer_id: ENV["BITRISE_APPLE_API_KEY_ISSUER_ID"],
+    key_content: ENV["BITRISE_APPLE_API_KEY_CONTENT"],
+    is_key_content_base64: true
+  )
 
-  desc "Sobe para o TestFlight"
-  lane :beta do
-    # 1. Autentica na Apple (O Bitrise preencherá essas variáveis automaticamente)
-    api_key = app_store_connect_api_key(
-      key_id: ENV["BITRISE_APPLE_API_KEY_ID"],
-      issuer_id: ENV["BITRISE_APPLE_API_KEY_ISSUER_ID"],
-      key_content: ENV["BITRISE_APPLE_API_KEY_CONTENT"], # Conteúdo do arquivo .p8
-      is_key_content_base64: true
-    )
+  check_build
 
-    # 2. Roda os testes antes de tudo (Segurança)
-    check_build
+  build_app(
+    scheme: "WebQuiz",
+    export_method: "app-store"
+  )
 
-    # 3. Gera o arquivo .ipa assinado
-    build_app(
-      scheme: "WebQuiz",
-      export_method: "app-store",
-      api_key: api_key
-    )
-
-    # 4. Envia para o TestFlight
-    upload_to_testflight(
-      api_key: api_key,
-      skip_waiting_for_build_processing: true
-    )
-  end
+  # 4. Envia para o TestFlight 
+  upload_to_testflight(
+    api_key: api_key,
+    skip_waiting_for_build_processing: true
+  )
+end
 end
