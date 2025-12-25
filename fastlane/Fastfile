@@ -14,33 +14,46 @@
 # update_fastlane
 
 default_platform(:ios)
+
 platform :ios do
 
   desc "Roda testes (Uso diário)"
   lane :check_build do
-    run_tests(scheme: "WebQuiz", output_directory: "test_output", output_types: "junit")
+    run_tests(
+      scheme: "WebQuiz",
+      output_directory: "test_output",
+      output_types: "junit"
+    )
   end
-desc "Sobe para o TestFlight"
-lane :beta do
-  # 1. Autentica na Apple
-  api_key = app_store_connect_api_key(
-    key_id: ENV["BITRISE_APPLE_API_KEY_ID"],
-    issuer_id: ENV["BITRISE_APPLE_API_KEY_ISSUER_ID"],
-    key_content: ENV["BITRISE_APPLE_API_KEY_CONTENT"],
-    is_key_content_base64: true
-  )
 
-  check_build
+  desc "Sobe para o TestFlight"
+  lane :beta do
+    api_key = app_store_connect_api_key(
+      key_id: ENV["BITRISE_APPLE_API_KEY_ID"],
+      issuer_id: ENV["BITRISE_APPLE_API_KEY_ISSUER_ID"],
+      key_content: ENV["BITRISE_APPLE_API_KEY_CONTENT"],
+      is_key_content_base64: true
+    )
 
-  build_app(
-    scheme: "WebQuiz",
-    export_method: "app-store"
-  )
+    # 1. Solicita certificados e perfis novos automaticamente
+    get_certificates(api_key: api_key)
+    get_provisioning_profile(api_key: api_key, bundle_id: "LNE.WebQuiz")
 
-  # 4. Envia para o TestFlight 
-  upload_to_testflight(
-    api_key: api_key,
-    skip_waiting_for_build_processing: true
-  )
-end
+    # 2. Roda os testes
+    check_build
+
+    # 3. Gera o build (Adicionada a vírgula que faltava aqui)
+    build_app(
+      scheme: "WebQuiz",
+      export_method: "app-store",
+      destination: "generic/platform=iOS"
+    )
+
+    # 4. Upload
+    upload_to_testflight(
+      api_key: api_key,
+      skip_waiting_for_build_processing: true
+    )
+  end
+
 end
